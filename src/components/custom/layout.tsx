@@ -1,4 +1,4 @@
-import { Home, HomeIcon, MenuIcon, Plus, Timer } from "lucide-react";
+import {  HomeIcon, MenuIcon, Plus, Timer } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
