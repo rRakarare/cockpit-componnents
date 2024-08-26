@@ -17,8 +17,15 @@ module.exports = {
       },
     },
     extend: {
-      height: {
-        "header": "var(--header-height)",
+      width: {
+        "nav": "var(--nav-width)",
+      },
+      padding: {
+
+        "nav-y": "var(--nav-p-y)",
+        "nav-l": "var(--nav-l)",
+        "nav-r": "var(--nav-r)",
+
       },
       colors: {
         border: "hsl(var(--border))",
@@ -26,6 +33,7 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        "accent-deep": "hsl(var(--accent-deep))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

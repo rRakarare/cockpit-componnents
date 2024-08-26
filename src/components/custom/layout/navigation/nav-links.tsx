@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
-interface SimpleNavItem {
+export interface SimpleNavItemType {
   title: string;
   icon: ReactElement;
   link: string;
@@ -26,7 +26,7 @@ interface DropdownNavItem {
   navitems: SubNavItem[];
 }
 
-const itemList: (SimpleNavItem | DropdownNavItem)[] = [
+const itemList: (SimpleNavItemType | DropdownNavItem)[] = [
   {
     title: "Home",
     icon: <HomeIcon className="size-5 shrink-0" />,
@@ -62,17 +62,17 @@ const itemList: (SimpleNavItem | DropdownNavItem)[] = [
   },
 ];
 
-const SimpleNavItem = ({
+export const SimpleNavItem = ({
   navItem,
   isOpen,
 }: {
-  navItem: SimpleNavItem;
+  navItem: SimpleNavItemType;
   isOpen: boolean;
 }) => {
   return (
     <Link
       to={navItem.link}
-      className="flex items-center p-2 rounded-md hover:bg-accent w-full"
+      className="flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep w-full"
     >
       {navItem.icon}
       <span
@@ -91,7 +91,7 @@ const SubNavItem = ({ navItem }: { navItem: SubNavItem }) => {
   return (
     <Link
       to={navItem.link}
-      className="flex items-center p-2 rounded-md hover:bg-accent w-full"
+      className="flex items-center p-2 rounded-md hover:bg-accent-deep w-full"
     >
       <span className="opacity-100 duration-300 ml-2 font-semibold whitespace-nowrap">
         {navItem.title}
@@ -112,7 +112,7 @@ const DropdownNavItem = ({
   return (
     <div className="overflow-hidden">
       <div
-        className="flex items-center p-2 rounded-md hover:bg-accent w-full cursor-pointer"
+        className="flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep w-full cursor-pointer"
         onClick={() => setOpenDropdown((state) => !state)}
       >
         {navItem.icon}
@@ -139,7 +139,7 @@ const DropdownNavItem = ({
         )}
       >
         <span className="bg-accent w-1 rounded-3xl"></span>
-        <div className="space-y-2 w-full">
+        <div className="space-y-1 w-full">
           {navItem.navitems.map((item, index) => (
             <SubNavItem key={index} navItem={item} />
           ))}
