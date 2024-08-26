@@ -55,7 +55,7 @@ const TopSidebarContent = ({isOpen, setIsFixed}:Props) => {
   );
 };
 
-function Sidebar({ isOpen, setIsOpen, isFixed, setIsFixed }: Props) {
+function Sidebar({ isOpen, setIsOpen, setIsFixed }: Props) {
   return (
     <aside
       className={cn(
