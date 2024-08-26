@@ -20,19 +20,38 @@ const reventChats = [
   },
 ];
 
-const ChatItem = ({ title }: { title: string }) => {
-  return <div className="whitespace-nowrap text-ellipsis overflow-hidden text-sm hover:bg-accent-deep p-1 rounded-lg cursor-pointer">{title}</div>;
+const ChatItem = ({ title, isOpen, index }: { title: string; isOpen: boolean, index:number }) => {
+
+  console.log(index);
+
+  return (
+    <div
+      className={cn(
+        "whitespace-nowrap text-ellipsis overflow-hidden text-sm hover:bg-accent-deep p-2 rounded-lg cursor-pointer opacity-0 transition-transform -translate-x-28 duration-500",
+        isOpen && "opacity-100 translate-x-0 ",
+      )}
+    >
+      {title}
+    </div>
+  );
 };
 
 function ChatHistory({ isOpen }: { isOpen: boolean }) {
   return (
     <div className={cn("flex flex-col px-2 pb-4 ", isOpen && "border-b")}>
-      <div className={cn("grid grid-rows-[0fr] transition-all", isOpen && "grid-rows-[1fr]")}>
-      <div className={cn("flex flex-col overflow-hidden")}>
-      {reventChats.map((chat, index) => (
-        <ChatItem key={index} title={chat.title} />
-      ))}
-      </div>
+      <div
+        className={cn(
+          "grid grid-rows-[0fr] transition-all duration-300 relative",
+          isOpen && "grid-rows-[1fr]"
+        )}
+      >
+        <div className="overflow-hidden">
+          <div className={cn(" flex flex-col ")}>
+            {reventChats.map((chat, index) => (
+              <ChatItem key={index} index={index} title={chat.title} isOpen={isOpen} />
+            ))}
+          </div>
+        </div>
       </div>
       <SimpleNavItem
         isOpen={isOpen}

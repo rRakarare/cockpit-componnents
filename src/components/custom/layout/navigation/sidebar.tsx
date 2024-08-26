@@ -33,7 +33,7 @@ const SectionHeading = ({
 const TopSidebarContent = ({isOpen, setIsFixed}:Props) => {
   return (
 
-      <div className="flex items-center p-2 w-full border-b">
+      <div className="flex items-center p-2 pl-3 w-full border-b">
         <CockpitLogo className="size-9 shrink-0" />
         <span
           className={cn(
