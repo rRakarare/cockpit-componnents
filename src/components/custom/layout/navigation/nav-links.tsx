@@ -6,7 +6,7 @@ import {
   LibraryBig,
   MessageSquare,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 export interface SimpleNavItemType {
@@ -58,7 +58,7 @@ const itemList: (SimpleNavItemType | DropdownNavItem)[] = [
   {
     title: "Media Studio",
     icon: <Clapperboard className="size-5 shrink-0" />,
-    link: "/library",
+    link: "/media",
   },
 ];
 
@@ -69,10 +69,14 @@ export const SimpleNavItem = ({
   navItem: SimpleNavItemType;
   isOpen: boolean;
 }) => {
+
+  const {pathname} = useLocation();
+  const isActive = navItem.link === pathname;
+
   return (
     <Link
       to={navItem.link}
-      className="flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep w-full"
+      className={cn("flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep w-full", isActive && "bg-accent-deep")}
     >
       {navItem.icon}
       <span
@@ -88,10 +92,14 @@ export const SimpleNavItem = ({
 };
 
 const SubNavItem = ({ navItem }: { navItem: SubNavItem }) => {
+
+  const {pathname} = useLocation();
+  const isActive = navItem.link === pathname;
+
   return (
     <Link
       to={navItem.link}
-      className="flex items-center p-2 rounded-md hover:bg-accent-deep w-full"
+      className={cn("flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep", isActive && "bg-accent-deep")}
     >
       <span className="opacity-100 duration-300 ml-2 font-semibold whitespace-nowrap">
         {navItem.title}
@@ -108,11 +116,14 @@ const DropdownNavItem = ({
   isOpen: boolean;
 }) => {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const {pathname} = useLocation();
+
+  const isActive = navItem.navitems.some((item) => item.link === pathname);
 
   return (
     <div className="overflow-hidden">
       <div
-        className="flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep w-full cursor-pointer"
+        className={cn("flex items-center p-2 pl-3 rounded-md hover:bg-accent-deep active:bg-accent-deep w-full cursor-pointer", isActive && "bg-accent-deep")}
         onClick={() => setOpenDropdown((state) => !state)}
       >
         {navItem.icon}
@@ -139,7 +150,7 @@ const DropdownNavItem = ({
         )}
       >
         <span className="bg-accent w-1 rounded-3xl"></span>
-        <div className="space-y-1 w-full">
+        <div className="space-y-1 pl-2 w-full border-l-2">
           {navItem.navitems.map((item, index) => (
             <SubNavItem key={index} navItem={item} />
           ))}

@@ -20,9 +20,8 @@ const reventChats = [
   },
 ];
 
-const ChatItem = ({ title, isOpen, index }: { title: string; isOpen: boolean, index:number }) => {
+const ChatItem = ({ title, isOpen }: { title: string; isOpen: boolean, index?:number }) => {
 
-  console.log(index);
 
   return (
     <div

@@ -33,11 +33,11 @@ const SectionHeading = ({
 const TopSidebarContent = ({isOpen, setIsFixed}:Props) => {
   return (
 
-      <div className="flex items-center p-2 pl-3 w-full border-b">
-        <CockpitLogo className="size-9 shrink-0" />
+      <div className="flex items-center p-3 pl-4 w-full border-b">
+        <CockpitLogo className="size-8 shrink-0" />
         <span
           className={cn(
-            "opacity-100 duration-300 ml-2 font-semibold whitespace-nowrap",
+            "opacity-100 duration-300 ml-2 font-semibold whitespace-nowrap self-end",
             !isOpen && "w-0 opacity-0 ml-0"
           )}
         >
@@ -46,7 +46,7 @@ const TopSidebarContent = ({isOpen, setIsFixed}:Props) => {
         <PanelLeft
           onClick={()=>setIsFixed((state:boolean)=>!state)}
           className={cn(
-            "size-7 ml-auto transition-all opacity-0 p-1 cursor-pointer",
+            "size-7 ml-auto transition-all opacity-0 p-1 cursor-pointer self-end",
             isOpen && "opacity-100 hover:bg-accent"
           )}
         />
