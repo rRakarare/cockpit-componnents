@@ -1,23 +1,32 @@
-import Layout from "./components/custom/layout/layout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Chat from "./pages/Chat";
-import Home from "./pages/Home";
-import Library from "./pages/Library";
-import AllChats from "./pages/AllChats";
-import Media from "./pages/Media";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  Chat,
+  Assistants,
+  Chats,
+  DataChat,
+  Library,
+  Login,
+  Media,
+  Projects,
+} from "./pages";
+import MainLayout from "./layout/layout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <Routes>
+        <Route element={<MainLayout />}>
+          <Route path="/" element={<Navigate to={"/login"} />} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/assistants" element={<Assistants />} />
+          <Route path="/chats" element={<Chats />} />
+          <Route path="/data-chat" element={<DataChat />} />
           <Route path="/library" element={<Library />} />
-          <Route path="/allChats" element={<AllChats />} />
           <Route path="/media" element={<Media />} />
-        </Routes>
-      </Layout>
+          <Route path="/projects" element={<Projects />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </BrowserRouter>
   );
 }

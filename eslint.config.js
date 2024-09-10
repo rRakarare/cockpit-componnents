@@ -6,7 +6,7 @@ import tseslint from 'typescript-eslint'
 
 export default tseslint.config({
   extends: [js.configs.recommended, ...tseslint.configs.recommended],
-  files: ['**/*.{ts,tsx}'],
+  files: ['**/*.{ts,tsx,js,jsx}'],
   ignores: ['dist'],
   languageOptions: {
     ecmaVersion: 2020,
@@ -15,6 +15,7 @@ export default tseslint.config({
   plugins: {
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
+
   },
   rules: {
     ...reactHooks.configs.recommended.rules,
