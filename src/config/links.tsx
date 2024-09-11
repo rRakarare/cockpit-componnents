@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import {
   Book,
   Code,
+  History,
   Layers,
   MessageSquare,
   NotepadText,
@@ -56,5 +57,6 @@ export const pages: PageLink[] = [
     href: "/chats",
     text: "Alle Chats",
     type: 'subLink',
+    icon: <History className="size-6" />,
   },
 ];

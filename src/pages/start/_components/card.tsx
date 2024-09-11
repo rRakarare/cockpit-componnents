@@ -10,12 +10,12 @@ function Card({
 }) {
   return (
     <MagicCard
-      className="cursor-pointer flex flex-col  bg-background p-4 whitespace-nowrap"
-      gradientColor={"#f0f0f0"}
+      className="cursor-pointer flex flex-col border-none bg-accent p-4 whitespace-nowrap group hover:scale-105 transition-all"
+      gradientColor={"#E4E4E4"}
     >
       <div className="flex flex-col  justify-between w-full h-32">
-        <p>{title}</p>
-        <div className="self-end">{icon}</div>
+        <p className="text-lg group-hover:animate-pulse font-semibold">{title}</p>
+        <div className="self-end group-hover:animate-pulse">{icon}</div>
       </div>
     </MagicCard>
   );
