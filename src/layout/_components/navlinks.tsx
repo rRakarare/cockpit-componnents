@@ -1,5 +1,3 @@
-import { Book, Code, Layers, MessageSquare, NotepadText, Play } from "lucide-react";
-import { ReactElement } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -7,47 +5,11 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Link } from "react-router-dom";
+import { PageLink, pages } from "@/config/links";
 
-type NavLink = {
-  href: string;
-  text: string;
-  icon: ReactElement;
-};
 
-const navLinks: NavLink[] = [
-  {
-    href: "/chat",
-    text: "Chat",
-    icon: <MessageSquare className="size-6" />,
-  },
-  {
-    href: "/data-chat",
-    text: "Data-Chat",
-    icon: <Layers className="size-6" />,
-  },
-  {
-    href: "/projects",
-    text: "Projekte",
-    icon: <NotepadText className="size-6" />,
-  },
-  {
-    href: "/library",
-    text: "Bibliothek",
-    icon: <Book className="size-6" />,
-  },
-  {
-    href: "/media",
-    text: "Studio",
-    icon: <Play className="size-6" />,
-  },
-  {
-    href: "/assistants",
-    text: "Assistenten",
-    icon: <Code className="size-6" />,
-  },
-];
 
-const NavLink = ({ href, text, icon }: NavLink) => {
+const NavLink = ({ href, text, icon }: PageLink) => {
   return (
     <TooltipProvider delayDuration={0}>
       <Tooltip>
@@ -65,7 +27,7 @@ const NavLink = ({ href, text, icon }: NavLink) => {
 };
 
 function NavLinks() {
-  return navLinks.map((item,i) => <NavLink key={i} {...item} />);
+  return pages.filter(item => item.type === "directLink").map((item,i) => <NavLink key={i} {...item} />);
 }
 
 export default NavLinks;

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Chat,
   Assistants,
@@ -8,6 +8,7 @@ import {
   Login,
   Media,
   Projects,
+  Start,
 } from "./pages";
 import MainLayout from "./layout/layout";
 
@@ -16,7 +17,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Navigate to={"/login"} />} />
+          <Route path="/" element={<Start/>} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/assistants" element={<Assistants />} />
           <Route path="/chats" element={<Chats />} />
