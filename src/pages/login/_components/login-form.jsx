@@ -4,7 +4,11 @@ import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const navigate = useNavigate();
 
-  return <Button className="w-full" onClick={() => navigate("/")}>Login</Button>;
+  return (
+    <Button className="w-full" onClick={() => navigate("/")}>
+      Login
+    </Button>
+  );
 }
 
 export default LoginForm;

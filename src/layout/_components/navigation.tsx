@@ -7,7 +7,7 @@ import Settings from "./settings";
 function Navigation() {
   return (
     <div className="flex flex-col h-full">
-      <div id="top" className="border-b py-3">
+      <div id="top" className="border-b flex items-center justify-center h-topbar">
         <Link to="/" className="flex justify-center">
           <CockpitLogo className="size-8 mx-auto" />
         </Link>
