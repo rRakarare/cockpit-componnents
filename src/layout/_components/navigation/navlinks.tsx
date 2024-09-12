@@ -4,17 +4,21 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Link } from "react-router-dom";
-import { PageLink, pages } from "@/config/links";
+import { Link, useLocation } from "react-router-dom";
+import { directLinks, link_type } from "@/config/links";
+import { cn } from "@/lib/utils";
 
 
 
-const NavLink = ({ href, text, icon }: PageLink) => {
+const NavLink = ({ href, text, icon }: link_type) => {
+
+  const {pathname} = useLocation();
+
   return (
     <TooltipProvider delayDuration={0}>
       <Tooltip>
         <TooltipTrigger asChild>
-            <Link to={href} className="hover:bg-accent p-3 rounded-lg">
+            <Link to={href} className={cn("hover:bg-accent p-2 rounded-lg border-2 border-transparent", pathname === href && "border-foreground")}>
                 {icon}
             </Link>
         </TooltipTrigger>
@@ -27,7 +31,9 @@ const NavLink = ({ href, text, icon }: PageLink) => {
 };
 
 function NavLinks() {
-  return pages.filter(item => item.type === "directLink").map((item,i) => <NavLink key={i} {...item} />);
+
+
+  return directLinks.map((item,i) => <NavLink key={i} {...item} />);
 }
 
 export default NavLinks;

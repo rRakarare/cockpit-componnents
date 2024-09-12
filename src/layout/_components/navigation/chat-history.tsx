@@ -9,8 +9,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
 import { EllipsisVertical, History } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const history = [
   {
@@ -52,13 +53,16 @@ const ChatMessage = ({ title }) => {
 };
 
 function ChatHistory() {
+
+  const {pathname} = useLocation();
+
   return (
     <Popover>
       <PopoverTrigger>
         <TooltipProvider delayDuration={0}>
           <Tooltip>
             <TooltipTrigger asChild>
-              <div className="hover:bg-accent p-3 rounded-lg">
+              <div className={cn("hover:bg-accent p-2 rounded-lg border-2 border-transparent", pathname === "/chats" && "border-foreground")}>
                 <History className="size-6 " />
               </div>
             </TooltipTrigger>

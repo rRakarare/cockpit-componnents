@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import CockpitLogo from "../logo";
 import ChatHistory from "./chat-history";
 import NavLinks from "./navlinks";
 import Settings from "./settings";
+import CockpitLogo from "../logo";
 
 function Navigation() {
   return (
