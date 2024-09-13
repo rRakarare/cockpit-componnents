@@ -36,9 +36,9 @@ const history = [
   },
 ];
 
-const ChatMessage = ({ title }) => {
+const ChatMessage = ({ title, id }) => {
   return (
-    <div className="hover:bg-accent p-1 px-2 rounded-lg flex items-center space-x-2">
+    <Link to={`chat/${id}`} className="hover:bg-accent p-1 px-2 rounded-lg flex items-center space-x-2">
       <p className="w-48 whitespace-nowrap overflow-hidden text-ellipsis">
         {title}
       </p>
@@ -48,7 +48,7 @@ const ChatMessage = ({ title }) => {
         </PopoverTrigger>
         <PopoverContent>Place content for the popover here.</PopoverContent>
       </Popover>
-    </div>
+    </Link>
   );
 };
 

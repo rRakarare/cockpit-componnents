@@ -9,6 +9,7 @@ import {
   Media,
   Projects,
   Start,
+  ChatId,
 } from "./pages";
 import MainLayout from "./layout/layout";
 
@@ -19,6 +20,7 @@ function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Start/>} />
           <Route path="/chat" element={<Chat />} />
+          <Route path="/chat/:id" element={<ChatId />} />
           <Route path="/assistants" element={<Assistants />} />
           <Route path="/chats" element={<Chats />} />
           <Route path="/data-chat" element={<DataChat />} />
