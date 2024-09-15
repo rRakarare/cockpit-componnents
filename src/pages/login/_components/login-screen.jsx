@@ -1,5 +1,5 @@
 
-import CockpitLogo from "@/layout/_components/logo";
+import CockpitLogo from "@/components/layout/_components/logo";
 import LoginForm from "./login-form";
 
 

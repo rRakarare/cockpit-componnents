@@ -11,7 +11,7 @@ import {
   Start,
   ChatId,
 } from "./pages";
-import MainLayout from "./layout/layout";
+import MainLayout from "./components/layout/layout";
 
 function App() {
   return (

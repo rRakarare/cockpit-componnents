@@ -1,8 +1,11 @@
+import ChatInput from "@/components/custom/chat/chat-input"
 
 
 function Page() {
   return (
-    <div>Page</div>
+    <div>
+      <ChatInput />
+    </div>
   )
 }
 

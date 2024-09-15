@@ -1,5 +1,5 @@
 import ChatInput from "@/components/custom/chat/chat-input";
-import CockpitLogo from "@/layout/_components/logo";
+import CockpitLogo from "@/components/layout/_components/logo";
 
 function Page() {
   return (
