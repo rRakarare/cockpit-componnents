@@ -5,7 +5,7 @@ export const chats: ChatType[] = [
     _id: 1,
     model: "GPT-4o",
     title: "Greetings",
-    updatedAt: "2022-01-01",
+    updatedAt: "2023-01-01",
     user: "Alice",
     messages: [
       {
@@ -26,7 +26,7 @@ export const chats: ChatType[] = [
     _id: 2,
     model: "Claude 3.5 Sonnet",
     title: "Poetry",
-    updatedAt: "2022-01-02",
+    updatedAt: "2024-01-02",
     user: "Bob",
     messages: [
       {
@@ -48,7 +48,7 @@ export const chats: ChatType[] = [
     _id: 3,
     model: "GPT-4",
     title: "Weather",
-    updatedAt: "2022-01-03",
+    updatedAt: "2024-09-03",
     user: "Charlie",
     messages: [
       {

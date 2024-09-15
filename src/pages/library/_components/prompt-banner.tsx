@@ -5,12 +5,24 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay"
 import { prompts } from "@/config/prompt/example-data";
 import { PromptType } from "@/config/prompt/types";
 
 function PromptBanner() {
   return (
-    <Carousel className="container bg-accent rounded-xl">
+    <Carousel
+      className="container bg-accent rounded-xl"
+      opts={{
+        align: "start",
+        loop: true,
+      }}
+      plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+    >
       <CarouselContent>
         {prompts.map((item, i) => (
           <PromptBannerItem key={i} title={item.title} type={item.type} />
