@@ -29,7 +29,10 @@ export default tseslint.config({
     '@typescript-eslint/no-empty-interface': [
       'warn',
     ],
-    '@typescript-eslint/no-empty-pattern': [
+    '@/no-empty-pattern': [
+      'warn',
+    ],
+    '@typescript-eslint/no-explicit-any': [
       'warn',
     ],
   },

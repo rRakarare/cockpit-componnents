@@ -1,4 +1,3 @@
-import ChatInput from "@/components/custom/chat/chat-input";
 import { imageChats } from "@/config/chat/image-chat/example-data";
 import { useParams } from "react-router-dom";
 

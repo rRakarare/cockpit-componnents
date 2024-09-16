@@ -37,6 +37,6 @@ export const getLastMessage = (updatedAt?: string) => {
       return `vor ${Math.round(delta / 365)} Jahren`;
 
     default:
-      "";
+      return "";
   }
 };
