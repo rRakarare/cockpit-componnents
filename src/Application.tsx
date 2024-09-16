@@ -10,6 +10,8 @@ import {
   Projects,
   Start,
   ChatId,
+  DataChatId,
+  MediaId,
 } from "./pages";
 import MainLayout from "./components/layout/layout";
 
@@ -24,8 +26,10 @@ function App() {
           <Route path="/assistants" element={<Assistants />} />
           <Route path="/chats" element={<Chats />} />
           <Route path="/data-chat" element={<DataChat />} />
+          <Route path="/data-chat/:id" element={<DataChatId />} />
           <Route path="/library" element={<Library />} />
           <Route path="/media" element={<Media />} />
+          <Route path="/media/:id" element={<MediaId />} />
           <Route path="/projects" element={<Projects />} />
         </Route>
         <Route path="/login" element={<Login />} />

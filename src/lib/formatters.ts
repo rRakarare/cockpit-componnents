@@ -13,11 +13,17 @@ export const getLastMessage = (updatedAt?: string) => {
   if (!updatedAt) return "";
   const today = new Date();
   const date = new Date(updatedAt);
-  const delta = Math.round(
-    (today.getTime() - date.getTime()) / (24 * 60 * 60 * 1000)
+  const deltaHours = Math.round(
+    (today.getTime() - date.getTime()) / (60 * 60 * 1000)
   );
+  const delta = Math.round(deltaHours / 24)
+
 
   switch (true) {
+
+    case delta === 0:
+      return `vor ${deltaHours} Stunden`;
+
     case delta === 1:
       return `vor ${delta} Tag`;
 
