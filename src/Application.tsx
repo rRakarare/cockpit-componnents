@@ -33,6 +33,7 @@ function App() {
           <Route path="/projects" element={<Projects />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/*" element={<>notFound</>} />
       </Routes>
     </BrowserRouter>
   );
