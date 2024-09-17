@@ -59,7 +59,7 @@ export const AutosizeTextarea = React.forwardRef<
   (
     {
       maxHeight = Number.MAX_SAFE_INTEGER,
-      minHeight = 40,
+      minHeight = 36,
       className,
       onChange,
       value,

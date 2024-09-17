@@ -11,6 +11,8 @@ const MessageSchema = z.object({
   metadata: z.object({}),
 });
 
+export type MessageType = z.infer<typeof MessageSchema>;
+
 export const ChatZodSchema = z.object({
   _id: z.string(),
   user: z.string(),

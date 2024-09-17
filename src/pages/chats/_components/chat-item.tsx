@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChatType } from "@/config/chat/base-chat/types";
 import { DataChatType } from "@/config/chat/data-chat/types";
+import { getChatHref } from "@/config/chat/get-chat-href";
 import { ImageChatType } from "@/config/chat/image-chat/types";
 import { getLastMessage } from "@/lib/formatters";
 import { Layers, MessageSquare, Play, Trash } from "lucide-react";
@@ -14,18 +15,7 @@ function ChatItem({
 }: Partial<ChatType | DataChatType | ImageChatType>) {
   const delta = getLastMessage(updatedAt);
 
-  const href = (() => {
-    switch (type) {
-      case "chat":
-        return `/chat/${_id}`;
-      case "data-chat":
-        return `/data-chat/${_id}`;
-      case "image-chat":
-        return `/media/${_id}`;
-      default:
-        return "/";
-    }
-  })();
+  const href = getChatHref({ type, _id });
 
   return (
     <Link

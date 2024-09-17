@@ -1,158 +1,20 @@
 import ChatInput from "@/components/custom/chat/chat-input";
+import ChatMessageList from "@/components/custom/chat/chat-message-list";
+import { chats } from "@/config/chat/base-chat/example-data";
+import { useParams } from "react-router-dom";
 
 function Page() {
+
+
+  const {id} = useParams<{id: string}>();
+
+  const chat = chats.find((chat) => chat._id === id);
+
   return (
     <div className="flex flex-col h-screen">
       <div className="mt-topbar pb-4 size-full overflow-y-auto">
-        <div className="container max-w-3xl">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-        enim corporis dolor ut quaerat harum nesciunt vel totam in, doloremque
-        reiciendis aspernatur exercitationem? Libero qui, fugit repellat
-        voluptates earum repudiandae?Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Voluptates enim corporis dolor ut quaerat harum
-        nesciunt vel totam in, doloremque reiciendis aspernatur exercitationem?
-        Libero qui, fugit repellat voluptates earum repudiandae?Lorem, ipsum
-        dolor sit amet consectetur adipisicing elit. Voluptates enim corporis
-        dolor ut quaerat harum nesciunt vel totam in, doloremque reiciendis
-        aspernatur exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Voluptates enim corporis dolor ut quaerat
-        harum nesciunt vel totam in, doloremque reiciendis aspernatur
-        exercitationem? Libero qui, fugit repellat voluptates earum
-        repudiandae?Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Voluptates enim corporis dolor ut quaerat harum nesciunt vel totam in,
-        doloremque reiciendis aspernatur exercitationem? Libero qui, fugit
-        repellat voluptates earum repudiandae?
-        </div>
+        <ChatMessageList messages={chat?.messages} />
+        
       </div>
       <ChatInput />
     </div>

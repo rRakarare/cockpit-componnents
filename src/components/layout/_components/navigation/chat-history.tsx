@@ -1,3 +1,4 @@
+import { ChatIcon } from "@/components/custom/chat/chat-icon";
 import {
   Popover,
   PopoverContent,
@@ -9,45 +10,32 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { chats } from "@/config/chat/base-chat/example-data";
+import { ChatType } from "@/config/chat/base-chat/types";
+import { dataChats } from "@/config/chat/data-chat/example-data";
+import { DataChatType } from "@/config/chat/data-chat/types";
+import { getChatHref } from "@/config/chat/get-chat-href";
+import { imageChats } from "@/config/chat/image-chat/example-data";
+import { ImageChatType } from "@/config/chat/image-chat/types";
 import { cn } from "@/lib/utils";
-import { EllipsisVertical, History } from "lucide-react";
+import { History } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-const history = [
-  {
-    id: 1,
-    title: "Chat with John Doe",
-  },
-  {
-    id: 2,
-    title: "Meeting with Team asdasd asddasda asdasd",
-  },
-  {
-    id: 3,
-    title: "Discussion on Project",
-  },
-  {
-    id: 4,
-    title: "Planning for Launch",
-  },
-  {
-    id: 5,
-    title: "Brainstorming Session",
-  },
-];
 
-const ChatMessage = ({ title, id }) => {
+const ChatMessage = ({
+  _id,
+  title,
+  type
+}: Partial<ChatType | DataChatType | ImageChatType>) => {
+
+  const href = getChatHref({ type, _id });
+
   return (
-    <Link to={`chat/${id}`} className="hover:bg-accent p-1 px-2 rounded-lg flex items-center space-x-2">
+    <Link to={href} className="hover:bg-accent p-1 px-2 rounded-lg flex items-center justify-center space-x-2">
+      <ChatIcon type={type} />
       <p className="w-48 whitespace-nowrap overflow-hidden text-ellipsis">
         {title}
       </p>
-      <Popover>
-        <PopoverTrigger>
-            <EllipsisVertical className="size-4" />
-        </PopoverTrigger>
-        <PopoverContent>Place content for the popover here.</PopoverContent>
-      </Popover>
     </Link>
   );
 };
@@ -55,6 +43,11 @@ const ChatMessage = ({ title, id }) => {
 function ChatHistory() {
 
   const {pathname} = useLocation();
+
+  const allChatItems = [...chats, ...dataChats, ...imageChats]
+  const sortedChatItems = [...allChatItems]
+    .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+    .slice(0, 5);
 
   return (
     <Popover>
@@ -85,8 +78,8 @@ function ChatHistory() {
         className="max-w-fit flex flex-col space-y-2 px-2 py-0 pb-2"
       >
         <div className="border-b px-4 py-3 -mx-2 font-bold">Chatverlauf</div>
-        {history.map((item) => (
-          <ChatMessage key={item.id} {...item} />
+        {sortedChatItems.map((item) => (
+          <ChatMessage key={item._id} {...item} />
         ))}
         <div className="border-t -mx-2">
             <Link to="/chats" className="hover:bg-accent p-1 px-2 mx-2 mt-2 rounded-lg flex">

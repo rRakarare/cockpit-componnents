@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Filter, Search } from "lucide-react";
 
 function ChatFilter() {
+
   return (
     <div className="flex justify-between items-center py-4 bg-background container">
       <div className="relative">
