@@ -12,7 +12,7 @@ function Page() {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="mt-topbar pb-4 size-full overflow-y-auto">
+      <div className="pt-topbar pb-4 size-full overflow-y-auto">
         <ChatMessageList messages={chat?.messages} />
         
       </div>
