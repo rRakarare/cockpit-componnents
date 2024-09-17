@@ -1,4 +1,4 @@
-import PromptGrid from "./_components/prompt-grid";
+// import PromptGrid from "./_components/prompt-grid";
 import PromptFilter from "./_components/prompt-filter";
 import PromptBanner from "./_components/prompt-banner";
 
@@ -7,7 +7,7 @@ function Page() {
     <div className="space-y-4 my-topbar">
       <PromptBanner />
       <PromptFilter />
-      <PromptGrid />
+      {/* <PromptGrid /> */}
     </div>
   );
 }
