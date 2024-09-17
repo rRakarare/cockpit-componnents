@@ -22,13 +22,13 @@ export const chats: ChatType[] = [
         role: "assistant",
         type: "text",
         content:
-          "The main challenges of colonizing Mars include: 1) Harsh environment with extreme temperatures and radiation. 2) Lack of breathable atmosphere. 3) Limited water resources. 4) Difficulty in growing food. 5) Psychological effects of isolation. 6) Logistical challenges of transporting supplies.",
+          "# Sample Markdown\n\n## Table of Contents\n1. [Introduction](#introduction)\n2. [Lists](#lists)\n3. [Table](#table)\n4. [Code](#code)\n\n## Introduction\nThis is a sample markdown text with various components.\n\n## Lists\n### Unordered List\n- Item 1\n- Item 2\n  - Subitem 2.1\n  - Subitem 2.2\n- Item 3\n\n### Ordered List\n1. First item\n2. Second item\n3. Third item\n\n## Table\n| Header 1 | Header 2 | Header 3 |\n|----------|----------|----------|\n| Row1 Col1| Row1 Col2| Row1 Col3|\n| Row2 Col1| Row2 Col2| Row2 Col3|\n\n## Code\n```python\ndef greet(name):\n    print(f'Hello, {name}!')\n\ngreet('World')\n```\n\n> This is a blockquote. It can span multiple lines.\n\n**Bold text** and *italic text* are also supported.\n\n[Visit OpenAI](https://www.openai.com)\n\n![Alt text for an image](https://example.com/image.jpg)",
         createdContentAt: "2024-09-16T10:31:30Z",
         metadata: {},
       },
     ],
     createdAt: "2024-09-16T10:30:00Z",
-    updatedAt: "2024-09-16T10:31:30Z",
+    updatedAt: "2024-09-17T10:31:30Z",
   },
   {
     _id: "chat002",

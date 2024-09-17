@@ -1,13 +1,14 @@
-import { MessageType } from "@/config/chat/base-chat/types"
+import { MessageType } from "@/config/chat/base-chat/types";
+import Markdown from "../markdown/markdown";
 
-function ChatMessage({content}: Partial<MessageType>) {
+function ChatMessage({ content }: Partial<MessageType>) {
   return (
     <div className="container max-w-3xl">
-        <div className="bg-gray-200 p-2 rounded-lg my-2">
-            {content}
-        </div> 
+      <div className="p-6 rounded-lg my-2 border">
+        <Markdown>{content}</Markdown>
+      </div>
     </div>
-  )
+  );
 }
 
-export default ChatMessage
+export default ChatMessage;
