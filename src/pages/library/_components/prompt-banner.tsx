@@ -4,11 +4,11 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@/components-v2/ui/carousel";
 import Autoplay from "embla-carousel-autoplay"
-import { prompts } from "@/config/prompt/example-data";
-import { PromptType } from "@/config/prompt/types";
-import { getPromptIcon } from "@/config/prompt/icon-map";
+import { prompts } from "@/config-v2/prompt/example-data";
+import { PromptType } from "@/config-v2/prompt/types";
+import { getPromptIcon } from "@/config-v2/prompt/icon-map";
 
 function PromptBanner() {
   return (

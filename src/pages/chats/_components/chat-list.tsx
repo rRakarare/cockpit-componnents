@@ -1,7 +1,7 @@
 
-import { chats } from "@/config/chat/base-chat/example-data";
-import { dataChats } from "@/config/chat/data-chat/example-data";
-import { imageChats } from "@/config/chat/image-chat/example-data";
+import { chats } from "@/config-v2/chat/base-chat/example-data";
+import { dataChats } from "@/config-v2/chat/data-chat/example-data";
+import { imageChats } from "@/config-v2/chat/image-chat/example-data";
 import ChatItem from "./chat-item";
 
 function ChatList() {

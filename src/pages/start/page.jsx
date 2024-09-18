@@ -1,6 +1,6 @@
 import CardGrid from "./_components/card-grid";
-import DotPattern from "@/components/magicui/dot-pattern";
-import { cn } from "@/lib/utils";
+import DotPattern from "@/components-v2/magicui/dot-pattern";
+import { cn } from "@/lib-v2/utils";
 
 function Page() {
   return (

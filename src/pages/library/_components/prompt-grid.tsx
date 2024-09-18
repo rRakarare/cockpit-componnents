@@ -1,4 +1,4 @@
-import { prompts } from "@/config/prompt/example-data"
+import { prompts } from "@/config-v2/prompt/example-data"
 import Prompt from "./prompt"
 
 function PromptGrid() {

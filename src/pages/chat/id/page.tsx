@@ -1,6 +1,6 @@
-import ChatInput from "@/components/custom/chat/chat-input";
-import ChatMessageList from "@/components/custom/chat/chat-message-list";
-import { chats } from "@/config/chat/base-chat/example-data";
+import ChatInput from "@/components-v2/custom/chat/chat-input";
+import ChatMessageList from "@/components-v2/custom/chat/chat-message-list";
+import { chats } from "@/config-v2/chat/base-chat/example-data";
 import { useParams } from "react-router-dom";
 
 function Page() {

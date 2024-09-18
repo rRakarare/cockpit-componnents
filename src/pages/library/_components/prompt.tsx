@@ -1,5 +1,5 @@
-import { getPromptIcon } from "@/config/prompt/icon-map";
-import { PromptType } from "@/config/prompt/types";
+import { getPromptIcon } from "@/config-v2/prompt/icon-map";
+import { PromptType } from "@/config-v2/prompt/types";
 
 function Prompt({ color, name, icon }: Partial<PromptType>) {
   return (

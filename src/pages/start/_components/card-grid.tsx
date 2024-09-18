@@ -1,6 +1,6 @@
-import { allLinks } from "@/config/links";
+import { allLinks } from "@/config-v2/links";
 import Card from "./card";
-import { AnimatedGroup } from "@/components/motion-primitives/animated-group";
+import { AnimatedGroup } from "@/components-v2/motion-primitives/animated-group";
 
 function CardGrid() {
   return (

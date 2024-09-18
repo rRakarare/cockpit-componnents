@@ -1,13 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './Application.tsx'
-import './index.css'
-import { ThemeProvider } from './components/layout/_components/theme-provider.tsx'
+import { useState } from "react";
+import Root from "./root-v2";
+import { createRoot } from "react-dom/client";
+import { Button } from "./components-v2/ui/button";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-    <App />
-    </ThemeProvider>
-  </StrictMode>,
-)
+// eslint-disable-next-line react-refresh/only-export-components
+const RootChanger = () => {
+  const [root, setRoot] = useState(false);
+  return (
+    <>
+      <Button className="absolute top-2 right-2" onClick={() => setRoot(!root)} size={"sm"}>
+        {root ? "v1" : "v2"}
+      </Button>
+      {root ? <Root /> : <div>Root 2</div>}
+    </>
+  );
+};
+
+createRoot(document.getElementById("root")!).render(<RootChanger />);

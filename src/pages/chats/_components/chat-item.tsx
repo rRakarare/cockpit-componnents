@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { ChatType } from "@/config/chat/base-chat/types";
-import { DataChatType } from "@/config/chat/data-chat/types";
-import { getChatHref } from "@/config/chat/get-chat-href";
-import { ImageChatType } from "@/config/chat/image-chat/types";
-import { getLastMessage } from "@/lib/formatters";
+import { Button } from "@/components-v2/ui/button";
+import { ChatType } from "@/config-v2/chat/base-chat/types";
+import { DataChatType } from "@/config-v2/chat/data-chat/types";
+import { getChatHref } from "@/config-v2/chat/get-chat-href";
+import { ImageChatType } from "@/config-v2/chat/image-chat/types";
+import { getLastMessage } from "@/lib-v2/formatters";
 import { Layers, MessageSquare, Play, Trash } from "lucide-react";
 import { Link } from "react-router-dom";
 

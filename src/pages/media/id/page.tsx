@@ -1,4 +1,4 @@
-import { imageChats } from "@/config/chat/image-chat/example-data";
+import { imageChats } from "@/config-v2/chat/image-chat/example-data";
 import { useParams } from "react-router-dom";
 
 function Page() {

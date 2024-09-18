@@ -1,4 +1,4 @@
-import { MagicCard } from "@/components/magicui/magic-card";
+import { MagicCard } from "@/components-v2/magicui/magic-card";
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
 

@@ -1,4 +1,4 @@
-import ChatInput from "@/components/custom/chat/chat-input";
+import ChatInput from "@/components-v2/custom/chat/chat-input";
 
 function Page() {
   return (

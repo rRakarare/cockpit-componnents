@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components-v2/ui/button";
+import { Input } from "@/components-v2/ui/input";
 import { LayoutGrid, LayoutList, Plus, SlidersHorizontal } from "lucide-react";
 
 function PromptFilter() {
