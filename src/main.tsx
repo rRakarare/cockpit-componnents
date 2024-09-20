@@ -11,7 +11,7 @@ const RootChanger = () => {
       <Button className="absolute top-2 right-2" onClick={() => setRoot(!root)} size={"sm"}>
         {root ? "v1" : "v2"}
       </Button>
-      {root ? <Root /> : <div>Root 2</div>}
+      {root ? <div>v1</div> : <Root /> }
     </>
   );
 };

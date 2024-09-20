@@ -4,7 +4,7 @@ import ChatId from "./chat/id/page";
 import Chats from "./chats/page";
 import DataChat from "./data-chat/page";
 import DataChatId from "./data-chat/id/page";
-import Library from "./library/page";
+import Prompt from "./prompt/page";
 import Login from "./login/page";
 import Media from "./media/page";
 import MediaId from "./media/id/page";
@@ -18,7 +18,7 @@ export {
   Assistants,
   DataChat,
   DataChatId,
-  Library,
+  Prompt,
   Login,
   Media,
   MediaId,

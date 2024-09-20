@@ -4,7 +4,7 @@ import {
   Assistants,
   Chats,
   DataChat,
-  Library,
+  Prompt,
   Login,
   Media,
   Projects,
@@ -29,7 +29,7 @@ function App() {
           <Route path="/chats" element={<Chats />} />
           <Route path="/data-chat" element={<DataChat />} />
           <Route path="/data-chat/:id" element={<DataChatId />} />
-          <Route path="/library" element={<Library />} />
+          <Route path="/prompt/:id?" element={<Prompt />} />
           <Route path="/media" element={<Media />} />
           <Route path="/media/:id" element={<MediaId />} />
           <Route path="/projects" element={<Projects />} />

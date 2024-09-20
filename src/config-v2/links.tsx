@@ -32,8 +32,8 @@ export const directLinks: link_type[] = [
     icon: <NotepadText className="size-6" />,
   },
   {
-    href: "/library",
-    text: "Bibliothek",
+    href: "/prompt",
+    text: "Prompt Bibliothek",
     icon: <Book className="size-6" />,
   },
   {
