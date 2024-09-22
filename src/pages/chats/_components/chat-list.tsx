@@ -1,17 +1,28 @@
-
-import { chats } from "@/config-v2/chat/base-chat/example-data";
-import { dataChats } from "@/config-v2/chat/data-chat/example-data";
-import { imageChats } from "@/config-v2/chat/image-chat/example-data";
+import { Skeleton } from "@/components-v2/ui/skeleton";
 import ChatItem from "./chat-item";
+import { CombinedChatType } from "@/lib-v2/hooks/useAllChatsFilter";
 
-function ChatList() {
+interface ChatListProps {
+  isLoading: boolean;
+  allChats: CombinedChatType [] 
+}
 
-  const allChatItems = [...chats, ...dataChats, ...imageChats]
-  const sortedChatItems = [...allChatItems].sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
+function ChatList({ isLoading, allChats }: ChatListProps) {
+  
+
+
+  if (isLoading)
+    return (
+      <div className="container grid grid-cols-3 gap-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Skeleton key={i} className="w-full h-20 rounded-full" />
+        ))}
+      </div>
+    );
 
   return (
-    <div className="container space-y-5">
-      {sortedChatItems.map((item, i) => (
+    <div className="container grid grid-cols-3 gap-4">
+      {allChats.map((item, i) => (
         <ChatItem
           key={i}
           _id={item._id}

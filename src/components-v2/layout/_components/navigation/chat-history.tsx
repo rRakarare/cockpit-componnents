@@ -10,13 +10,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components-v2/ui/tooltip";
-import { chats } from "@/config-v2/chat/base-chat/example-data";
 import { ChatType } from "@/config-v2/chat/base-chat/types";
-import { dataChats } from "@/config-v2/chat/data-chat/example-data";
 import { DataChatType } from "@/config-v2/chat/data-chat/types";
 import { getChatHref } from "@/config-v2/chat/get-chat-href";
-import { imageChats } from "@/config-v2/chat/image-chat/example-data";
 import { ImageChatType } from "@/config-v2/chat/image-chat/types";
+import { useAllChatsFilter } from "@/lib-v2/hooks/useAllChatsFilter";
 import { cn } from "@/lib-v2/utils";
 import { History } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -44,10 +42,7 @@ function ChatHistory() {
 
   const {pathname} = useLocation();
 
-  const allChatItems = [...chats, ...dataChats, ...imageChats]
-  const sortedChatItems = [...allChatItems]
-    .sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
-    .slice(0, 5);
+  const {allChats} = useAllChatsFilter()
 
   return (
     <Popover>
@@ -78,7 +73,7 @@ function ChatHistory() {
         className="max-w-fit flex flex-col space-y-2 px-2 py-0 pb-2"
       >
         <div className="border-b px-4 py-3 -mx-2 font-bold">Chatverlauf</div>
-        {sortedChatItems.map((item) => (
+        {allChats.map((item) => (
           <ChatMessage key={item._id} {...item} />
         ))}
         <div className="border-t -mx-2">
