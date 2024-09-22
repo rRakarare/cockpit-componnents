@@ -1,14 +1,22 @@
-import { MessageType } from "@/config-v2/chat/base-chat/types"
-import ChatMessage from "./chat-message"
+import { MessageType } from "@/config-v2/chat/base-chat/types";
+import ChatMessage from "./chat-message";
+import Loader from "../loader";
 
-function ChatMessageList({messages}: {messages: Partial<MessageType[]> | undefined}) {
-  return (
-    <div className="container max-w-3xl">
-        {messages?.map((message) => (
-            <ChatMessage {...message} key={message?._id} />
-        ))}       
-    </div>
-  )
+interface ChatMessageListProps {
+  messages: Partial<MessageType[]> | undefined;
+  isLoading: boolean;
 }
 
-export default ChatMessageList
+function ChatMessageList({ messages, isLoading }: ChatMessageListProps) {
+  if (isLoading) return <Loader />;
+
+  return (
+    <div className="container max-w-3xl">
+      {messages?.map((message) => (
+        <ChatMessage {...message} key={message?._id} />
+      ))}
+    </div>
+  );
+}
+
+export default ChatMessageList;

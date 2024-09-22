@@ -10,7 +10,7 @@ import { useRef } from "react";
 
 export type CombinedChatType = ChatType | DataChatType | ImageChatType;
 
-export const useInitChats = () => {
+export const useInitAllChats = () => {
     
   const { isLoading: isLoading1, isError: isError1 } = useGetChatsByAuthIdQuery(
     {}
@@ -28,7 +28,7 @@ export const useInitChats = () => {
 };
 
 export function useAllChatsFilter() {
-  const { isLoading, isError } = useInitChats();
+  const { isLoading, isError } = useInitAllChats();
 
   const sChats = useSelector((state: any) => state.chat.chats);
   const iChats = useSelector((state: any) => state.imageChats.imageChats);

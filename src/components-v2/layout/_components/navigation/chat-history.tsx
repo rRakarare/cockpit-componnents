@@ -73,7 +73,7 @@ function ChatHistory() {
         className="max-w-fit flex flex-col space-y-2 px-2 py-0 pb-2"
       >
         <div className="border-b px-4 py-3 -mx-2 font-bold">Chatverlauf</div>
-        {allChats.map((item) => (
+        {allChats.slice(0,5).map((item) => (
           <ChatMessage key={item._id} {...item} />
         ))}
         <div className="border-t -mx-2">
