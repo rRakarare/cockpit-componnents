@@ -26,7 +26,7 @@ export const authApi = apiSlice.injectEndpoints({
           toast({title: ToastHeading.SUCCESS, description:result.data.message});
         } catch (error) {
 
-          toast({title: ToastHeading.SUCCESS, description:error?.error?.data?.message});
+          toast({title: ToastHeading.ERROR, description:error?.error?.data?.message});
         }
       },
     }),
@@ -42,7 +42,7 @@ export const authApi = apiSlice.injectEndpoints({
           const result = await queryFulfilled;
           toast({title: ToastHeading.SUCCESS, description:result.data.message});
         } catch (error) {
-          toast({title: ToastHeading.SUCCESS, description:error?.error?.data?.message});
+          toast({title: ToastHeading.ERROR, description:error?.error?.data?.message});
         }
       },
     }),
@@ -58,7 +58,7 @@ export const authApi = apiSlice.injectEndpoints({
           if (error.error.data.message === jwtExpMsg) {
             dispatch(userLoggedOut());
           }
-          toast({title: ToastHeading.SUCCESS, description:error.error.data.message});
+          toast({title: ToastHeading.ERROR, description:error.error.data.message});
         }
       },
     }),
@@ -81,7 +81,7 @@ export const authApi = apiSlice.injectEndpoints({
           if (error.error.data.message === jwtExpMsg) {
             dispatch(userLoggedOut());
           }
-          toast({title: ToastHeading.SUCCESS, description:error.error.data.message});
+          toast({title: ToastHeading.ERROR, description:error.error.data.message});
         }
       },
     }),
@@ -98,7 +98,7 @@ export const authApi = apiSlice.injectEndpoints({
           const result = await queryFulfilled;
           toast({title: ToastHeading.SUCCESS, description:result.data.message});
         } catch (error) {
-          toast({title: ToastHeading.SUCCESS, description:error.error.data.message});
+          toast({title: ToastHeading.ERROR, description:error.error.data.message});
         }
       },
     }),
@@ -113,7 +113,7 @@ export const authApi = apiSlice.injectEndpoints({
           const result = await queryFulfilled;
           toast({title: ToastHeading.SUCCESS, description:result.data.message});
         } catch (error) {
-          toast({title: ToastHeading.SUCCESS, description:error.error.data.message});
+          toast({title: ToastHeading.ERROR, description:error.error.data.message});
         }
       },
     }),
