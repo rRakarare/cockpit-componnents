@@ -11,7 +11,7 @@ export const chatApi = apiSlice.injectEndpoints({
       query: (data) => {
         // The limit should be decided by client depending on viewport size
         // In case of a mobile app should proabably be less maybe 10
-        return `chat/authenticated-id?page=${data.page}&limit=${data.limit}`;
+        return `chat/authenticated-id?page=${data.page}&limit=30`;
       },
       // Refetch when the page arg changes
       forceRefetch({ currentArg, previousArg }) {
