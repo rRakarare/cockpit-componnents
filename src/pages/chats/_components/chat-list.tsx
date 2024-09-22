@@ -14,8 +14,15 @@ function ChatList({ isLoading, allChats }: ChatListProps) {
   if (isLoading)
     return (
       <div className="container grid grid-cols-3 gap-4">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <Skeleton key={i} className="w-full h-20 rounded-full" />
+        {Array.from({ length: 40 }).map((_, i) => (
+          <div key={i} className="chat-history-item space-x-2">
+            <Skeleton className="size-6 rounded-full" />
+            <div className="w-full flex flex-col space-y-2">
+              <Skeleton className="w-1/2 h-5" />
+              <Skeleton className="w-1/4 h-5" />
+            </div>
+          </div>
+
         ))}
       </div>
     );

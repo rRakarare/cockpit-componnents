@@ -20,7 +20,7 @@ function ChatItem({
   return (
     <Link
       to={href}
-      className="w-full h-20 border rounded-md p-4 flex justify-between items-center hover:bg-accent group"
+      className="chat-history-item group"
     >
       <div className="flex items-center space-x-3">
         <ChatIcon type={type} />
