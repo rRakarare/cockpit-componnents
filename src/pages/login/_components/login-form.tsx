@@ -22,7 +22,7 @@ const formSchema = z.object({
 
 function LoginForm() {
 
-  const [login, { isLoading }] = useLoginMutation();
+  const [login, { isLoading, isSuccess }] = useLoginMutation();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,6 +36,12 @@ function LoginForm() {
       password: "",
     },
   })
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigate(from);
+    }
+  }, [isSuccess, navigate, from]);
 
   useEffect(() => {
     if (auth.isAuthenticated) {
