@@ -5,9 +5,6 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_BACKEND_URL,
     credentials: "include",
-    prepareHeaders: (headers) => {
-      return headers;
-    },
   }),
   tagTypes: [
     "Users",
