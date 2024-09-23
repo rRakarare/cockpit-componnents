@@ -39,15 +39,17 @@ function LoginForm() {
 
   useEffect(() => {
     if (isSuccess) {
-      navigate(from);
+      setTimeout(() => {
+        navigate(from);
+      }, 2000);
     }
   }, [isSuccess, navigate, from]);
 
-  useEffect(() => {
-    if (auth.isAuthenticated) {
-      navigate(from);
-    }
-  }, [auth.isAuthenticated, from, navigate])
+  // useEffect(() => {
+  //   if (auth.isAuthenticated) {
+  //     navigate(from);
+  //   }
+  // }, [auth.isAuthenticated, from, navigate])
   
 
   function onSubmit(values: z.infer<typeof formSchema>) {
