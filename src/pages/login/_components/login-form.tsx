@@ -6,7 +6,7 @@ import TextInput from "@/components-v2/ui/formhelper/text-input";
 import PasswordInput from "@/components-v2/ui/formhelper/password-input";
 import { Form } from "@/components-v2/ui/form";
 import { useLoginMutation } from "@/redux-rtk-v2/features/auth/authApi";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { LoaderCircle } from "lucide-react";
@@ -26,7 +26,7 @@ function LoginForm() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const auth = useSelector((state: { auth: { isAuthenticated: boolean } }) => state.auth);
+  // const auth = useSelector((state: { auth: { isAuthenticated: boolean } }) => state.auth);
   const from = location.state?.from.pathname || "/";
 
   const form = useForm<z.infer<typeof formSchema>>({
