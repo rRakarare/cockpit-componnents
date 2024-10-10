@@ -1,19 +1,32 @@
-import ChatInput from "@/components-v2/custom/chat/chat-input";
+import { useNavigate } from "react-router-dom";
+import ChatSettings from "./_components/ChatSettings";
 import CockpitLogoBackGround from "@/components-v2/custom/unsorted/backLogo";
-import CockpitLogo from "@/components-v2/custom/unsorted/logo";
+
 
 function Page() {
+
+  const navigate = useNavigate();
+
+
+
   return (
-    <div className="flex flex-col h-screen">
-      <div className="mt-topbar pb-4 size-full overflow-y-auto">
-        <div className="container flex flex-col h-full items-center justify-center">
-          <CockpitLogoBackGround className="w-[1200px] absolute -z-30" />
-        <h2 className="text-4xl font-bold">Willkommen im Data-Chat</h2>
-        </div>
+    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+      <div className="absolute -z-30">
+      <CockpitLogoBackGround className="w-[1000px] " />
       </div>
-      <ChatInput />
+    
+    
+      <div className="w-[768px] flex flex-col space-y-6 items-center">
+        <h2 className="text-4xl font-bold">Willkommen im Data-Chat!</h2>
+      <div className="w-full">
+      <ChatSettings onSend={()=>navigate(`/datachat/newChat`)}  />
+      </div>
+      </div>
+    
     </div>
   );
 }
 
 export default Page;
+
+
