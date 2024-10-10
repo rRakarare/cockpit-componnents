@@ -26,6 +26,11 @@ export const directLinks: link_type[] = [
     icon: <ChatIcon className="size-6 shrink-0" type="data-chat" />,
   },
   {
+    href: "/prompt",
+    text: "Prompt Bibliothek",
+    icon: <Book className="size-6 shrink-0" />,
+  },
+  {
     href: "/media",
     text: "Studio",
     icon: <ChatIcon className="size-6 shrink-0" type="image-chat" />,
@@ -35,11 +40,7 @@ export const directLinks: link_type[] = [
     text: "Verlauf",
     icon: <History className="size-6 shrink-0" />,
   },
-  {
-    href: "/prompt",
-    text: "Prompt Bibliothek",
-    icon: <Book className="size-6 shrink-0" />,
-  },
+
 ];
 
 export const allLinks: link_type[] = [...directLinks];
