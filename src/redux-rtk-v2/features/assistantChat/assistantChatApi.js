@@ -2,7 +2,7 @@ import { apiSlice } from "../api/apiSlice";
 import { jwtExpMsg, ToastHeading } from "@/config-v2/constants";
 import { userLoggedOut } from "../auth/authSlice";
 import { assistantChatLogs } from "./assistantChatSlice";
-import { toast } from "@/lib-v2/hooks/use-toast";
+import { toast } from "@/lib-v2/hooks/utils/use-toast";
 
 export const chatApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

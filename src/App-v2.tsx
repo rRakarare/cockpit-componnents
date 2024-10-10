@@ -9,9 +9,9 @@ import {
   Media,
   Projects,
   Start,
-  ChatId,
   DataChatId,
   MediaId,
+  ChatId,
 } from "./pages";
 import MainLayout from "./components-v2/layout/layout";
 import Protected from "./components-v2/custom/auth/AuthCheck";

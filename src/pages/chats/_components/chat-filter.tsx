@@ -38,21 +38,27 @@ function ChatFilter({ setFilter, typeFilter, setTypeFilter }: ChatFilterProps) {
       </div>
       <div>
         <ToggleGroup type="multiple" value={typeFilter}>
+
           <ToolTipShort tip="Chat">
-          <ToggleGroupItem value="chat" aria-label="Toggle chat" variant={"outline"} onClick={()=>handleTypeChange("chat")}>
+
+          <ToggleGroupItem type="reset" value="chat" aria-label="Toggle chat" variant={"outline"} onClick={()=>handleTypeChange("chat")}>
             <ChatIcon type={"chat"} />
           </ToggleGroupItem>
+
           </ToolTipShort>
+
           <ToolTipShort tip="Data Chat">
           <ToggleGroupItem value="data-chat" aria-label="Toggle data-chat" variant={"outline"} onClick={()=>handleTypeChange("data-chat")}>
             <ChatIcon type={"data-chat"} />
           </ToggleGroupItem>
           </ToolTipShort>
+
           <ToolTipShort tip="Image Chat">
           <ToggleGroupItem value="image-chat" aria-label="Toggle image-chat" variant={"outline"} onClick={()=>handleTypeChange("image-chat")}>
             <ChatIcon type={"image-chat"} />
           </ToggleGroupItem>
           </ToolTipShort>
+
         </ToggleGroup>
       </div>
     </div>

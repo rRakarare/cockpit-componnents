@@ -18,6 +18,7 @@ export const apiSlice = createApi({
     "Prompts",
     "Prompt",
     "AllChats",
+    "CombinedChats",
     "Chat",
     "Chats",
     "ImageChats",

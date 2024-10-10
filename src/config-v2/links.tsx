@@ -9,48 +9,37 @@ export type link_type = {
   href: string;
   text: string;
   icon: ReactElement;
+  isOpenNav?: boolean;
+  state?: object;
 };
 
 export const directLinks: link_type[] = [
   {
     href: "/chat",
     text: "Chat",
-    icon: <ChatIcon className="size-6" type="chat" />,
+    icon: <ChatIcon className="size-6 shrink-0" type="chat" />,
+    state: {reset: true}
   },
   {
     href: "/data-chat",
     text: "Data-Chat",
-    icon: <ChatIcon className="size-6" type="data-chat" />,
+    icon: <ChatIcon className="size-6 shrink-0" type="data-chat" />,
   },
   {
     href: "/media",
     text: "Studio",
-    icon: <ChatIcon className="size-6" type="image-chat" />,
+    icon: <ChatIcon className="size-6 shrink-0" type="image-chat" />,
   },
-  // {
-  //   href: "/projects",
-  //   text: "Projekte",
-  //   icon: <NotepadText className="size-6" />,
-  // },
+  {
+    href: "/chats",
+    text: "Verlauf",
+    icon: <History className="size-6 shrink-0" />,
+  },
   {
     href: "/prompt",
     text: "Prompt Bibliothek",
-    icon: <Book className="size-6" />,
-  },
-
-  // {
-  //   href: "/assistants",
-  //   text: "Assistenten",
-  //   icon: <Code className="size-6" />,
-  // },
-];
-
-export const subLinks: link_type[] = [
-  {
-    href: "/chats",
-    text: "Alle Chats",
-    icon: <History className="size-6" />,
+    icon: <Book className="size-6 shrink-0" />,
   },
 ];
 
-export const allLinks: link_type[] = [...directLinks, ...subLinks];
+export const allLinks: link_type[] = [...directLinks];

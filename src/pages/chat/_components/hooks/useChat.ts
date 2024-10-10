@@ -1,27 +1,52 @@
-import { ChatType } from "@/config-v2/chat/base-chat/types";
-import { useGetChatsByAuthIdQuery } from "@/redux-rtk-v2/features/chat/chatApi";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useStream } from "@/lib-v2/hooks/chat/useStream";
+import { useGetChatByIdQuery } from "@/redux-rtk-v2/features/combinedChats/combinedChatApi";
+import { useEffect } from "react";
 
-export const useInitChats = () => {
-  const { isLoading, isError } = useGetChatsByAuthIdQuery({});
+const useChatData = ({
+  id,
+  type,
+}: {
+  id: string | undefined;
+  type: "normal" | "data" | "image";
+}) => {
+  const { data: chat, isLoading } = useGetChatByIdQuery({ id: id, type: type });
 
-  return { isLoading, isError };
+  return {
+    chat: id ? chat?.data : null,
+    isLoading,
+  };
 };
 
-export function useChat({ _id }: { _id: string | undefined }) {
-  const { isLoading, isError } = useInitChats();
+export function useChat(_id: string | undefined) {
+  const { chat, isLoading } = useChatData({ id: _id, type: "normal" });
 
-  const sChats = useSelector((state: any) => state.chat.chats);
-
-  const [chat, setChat] = useState<ChatType | null>(null);
+  const {
+    stream,
+    response,
+    newChatId,
+    isStreaming,
+    upstream,
+    isFinished,
+    clearStates,
+  } = useStream({endpoint: "chat/stream" });
 
   useEffect(() => {
-    if (!isLoading) {
-      const chat = sChats.find((chat: ChatType) => chat._id === _id);
-      setChat(chat);
+    if (isFinished) {
+      if (newChatId) {
+        window.history.replaceState(null, "", `/chat/${newChatId}`);
+      }
+      clearStates();
     }
-  }, [sChats, isLoading, _id]);
+  }, [clearStates, isFinished, newChatId]);
 
-  return { chat, isLoading, isError };
+  return {
+    chat,
+    isLoadingChats: isLoading,
+    stream,
+    upstream,
+    response,
+    isStreaming,
+    isFinished,
+  };
 }

@@ -15,7 +15,11 @@ function ToolTipShort({
   return (
     <TooltipProvider delayDuration={0}>
       <Tooltip>
-        <TooltipTrigger>{children}</TooltipTrigger>
+        <TooltipTrigger asChild type={"reset"}>
+          <div>
+          {children}
+          </div>
+        </TooltipTrigger>
         <TooltipContent>{tip}</TooltipContent>
       </Tooltip>
     </TooltipProvider>

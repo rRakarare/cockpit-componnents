@@ -4,7 +4,7 @@ import { cn } from "@/lib-v2/utils";
 
 function Page() {
   return (
-    <div className={"container mt-28 flex flex-col space-y-20"}>
+    <div className={"container mt-28 flex flex-col space-y-20 overflow-x-auto w-full max-w-full"}>
       <DotPattern
         width={20}
         height={20}

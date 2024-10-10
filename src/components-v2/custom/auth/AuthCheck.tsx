@@ -1,5 +1,5 @@
 import { loginUrl } from "@/config-v2/constants";
-import useAuthCheck from "@/lib-v2/hooks/useAuthCheck";
+import useAuthCheck from "@/lib-v2/hooks/auth/useAuthCheck";
 import { Navigate, Outlet } from "react-router-dom";
 
 const AuthCheck = () => {

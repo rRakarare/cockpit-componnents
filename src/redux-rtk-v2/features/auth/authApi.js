@@ -1,4 +1,4 @@
-import { toast } from "@/lib-v2/hooks/use-toast";
+import { toast } from "@/lib-v2/hooks/utils/use-toast";
 import { apiSlice } from "../api/apiSlice";
 import { profileLog, userLoggedIn, userLoggedOut } from "./authSlice";
 import { jwtExpMsg, ToastHeading } from "@/config-v2/constants";;
