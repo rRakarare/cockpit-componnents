@@ -9,26 +9,23 @@ import { cn } from "@/lib-v2/utils";
 interface ChatMessageListProps {
   messages: Partial<MessageType[]> | undefined;
   isLoading: boolean;
+  isFinished: boolean;
+  isStreaming: boolean;
   response: string | null;
   upstream: string | null;
 }
 
 const ChatMessageList: React.FC<ChatMessageListProps> = React.memo(
-  ({ messages, isLoading, response, upstream }) => {
+  ({ messages, isLoading, response, upstream, isStreaming, isFinished }) => {
     const { syncedMessages, syncedResponse, syncedUpstream } =
-      useSyncedMessages({ messages, response, upstream });
+      useSyncedMessages({ response, upstream, isFinished });
 
+    const [elementRef, isInView, scrollToElement] = useInView({isLoading, autoScrollDependency: [syncedResponse, syncedUpstream], enableAutoScroll: true});
 
-    const [elementRef, isInView, scrollToElement] = useInView(
-      [syncedMessages, isLoading]
-    );
-
-
+    console.log("messages", messages);
 
     return (
       <div className="flex-grow relative">
-        
-        
         <Button
           className={cn(
             "absolute bottom-5 z-50 left-1/2 transform -translate-x-1/2",
@@ -40,23 +37,23 @@ const ChatMessageList: React.FC<ChatMessageListProps> = React.memo(
         </Button>
 
         <div className="absolute inset-0 overflow-y-auto px-3">
-        
           <div className="max-w-3xl mx-auto">
-            {syncedMessages?.map((message) => (
-              <ChatMessage {...message} key={message?._id} />
+            {messages?.map((message, id) => (
+              <ChatMessage {...message} key={id} />
+            ))}
+            {syncedMessages?.map((message, id) => (
+              <ChatMessage {...message} key={id} />
             ))}
             {syncedUpstream && (
               <ChatMessage content={syncedUpstream} role="user" />
             )}
             {syncedResponse && (
-              <ChatMessage content={syncedResponse} role="assistant" />
+              <ChatMessage isStreaming={isStreaming} content={syncedResponse} role="assistant" />
             )}
-            
           </div>
-          
-          <div ref={elementRef} className="h-1" /> 
+
+          <div ref={elementRef} className="h-1" />
         </div>
-        
       </div>
     );
   }

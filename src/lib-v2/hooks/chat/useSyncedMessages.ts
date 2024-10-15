@@ -1,39 +1,50 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { MessageType } from "@/redux-rtk-v2/types/chats/message";
 import { useEffect, useState } from "react";
 
-interface Props<T> {
-    messages: T[]|undefined;
-    response: string | null;
-    upstream: string | null;
+interface Props {
+  response: string | null;
+  upstream: string | null;
+  isFinished?: boolean;
 }
 
-export const useSyncedMessages = <T>({ messages, response, upstream }: Props<T>) => {
-    const [syncedResponse, setSyncedResponse] = useState<string | null>(null);
-    const [syncedUpstream, setSyncedUpstream] = useState<string | null>(null);
-    const [syncedMessages, setSyncedMessages] = useState<T[]|undefined>([]);
+export const useSyncedMessages = ({
+  response,
+  upstream,
+  isFinished,
+}: Props) => {
+  const [syncedResponse, setSyncedResponse] = useState<string | null>(null);
+  const [syncedUpstream, setSyncedUpstream] = useState<string | null>(null);
+  const [syncedMessages, setSyncedMessages] = useState<Partial<MessageType>[]>(
+    []
+  );
 
-    useEffect(() => {
-      if (response) {
-        setSyncedResponse(response);
-      }
-    }, [response]);
+  useEffect(() => {
+    if (response) {
+      setSyncedResponse(response);
+    }
+  }, [response]);
 
-    useEffect(() => {
-      if (upstream) {
-        setSyncedUpstream(upstream);
-      }
-    }, [upstream]);
+  useEffect(() => {
+    if (upstream) {
+      setSyncedUpstream(upstream);
+    }
+  }, [upstream]);
 
-    
-
-    useEffect(() => {
-      if (!upstream && !response && messages && messages.length > (syncedMessages?.length ?? 0)) {
-        setSyncedMessages(messages);
+  useEffect(() => {
+    if (isFinished) {
+      console.log({ syncedMessages, syncedUpstream, syncedResponse, response });
+      setTimeout(() => {
+        setSyncedMessages((currentMessages) => [
+          ...currentMessages,
+          { role: "user", content: syncedUpstream ?? "" },
+          { role: "assistant", content: syncedResponse ?? "" },
+        ]);
         setSyncedResponse(null);
         setSyncedUpstream(null);
-      } else {
-        setSyncedMessages(messages);
-      }
-    }, [messages]);
+      }, 100);
+    }
+  }, [isFinished]);
 
-    return { syncedMessages, syncedResponse, syncedUpstream };
+  return { syncedMessages, syncedResponse, syncedUpstream };
 };

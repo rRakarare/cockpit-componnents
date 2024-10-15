@@ -1,8 +1,12 @@
 import CardGrid from "./_components/card-grid";
 import DotPattern from "@/components-v2/magicui/dot-pattern";
 import { cn } from "@/lib-v2/utils";
+import Main from "./_components/typingTest/main";
 
 function Page() {
+
+  return <Main />;
+
   return (
     <div className={"container max-w-6xlxl mt-28 flex flex-col space-y-20 overflow-x-auto w-full"}>
       <DotPattern

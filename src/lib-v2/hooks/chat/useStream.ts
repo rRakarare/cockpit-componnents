@@ -1,4 +1,5 @@
-import { RootState } from "@/redux-rtk-v2/app/store";
+import { RootState, useAppDispatch } from "@/redux-rtk-v2/app/store";
+import { setSendData } from "@/redux-rtk-v2/features/combinedChats/normalChatSlice";
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -12,17 +13,17 @@ export const useStream = ({ endpoint }: StreamProps) => {
 
 
   const sendData = useSelector((state:RootState) => state.combinedChat.sendData);
-
-  console.log("sendData", sendData);
+  const dispatch = useAppDispatch();
 
   const responseRef = useRef<string>("");
   const [response, setResponse] = useState<string | null>(null);
-  const [upstream, setUpStream] = useState<string | null>(null);
+  const [upstream, setUpStream] = useState<string | null | undefined>(null);
   const [newChatId, setNewChatId] = useState<string | null>(null);
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
 
   const clearStates = () => {
+    responseRef.current = "";
     setResponse(null);
     setUpStream(null);
     setNewChatId(null);
@@ -32,25 +33,24 @@ export const useStream = ({ endpoint }: StreamProps) => {
 
   const stream = async () => {
 
-    setUpStream(sendData?.message ?? null);
+    const formData = sendData;
+    dispatch(setSendData({message: ""}));
+
+    setUpStream(formData?.message);
     setIsStreaming(true);
     try {
       const isCancelled = false;
-      const formData = null
       // getting response from server based on the user prompt
       const headers = {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       };
-      const formDataHeaders = {
-        Accept: "application/json, text/plain, */*",
-      };
       const response = await fetch(
         `${import.meta.env.VITE_BACKEND_URL}${endpoint}`,
         {
           method: "POST",
-          headers: formData ? formDataHeaders : headers,
-          body: formData ? formData : JSON.stringify(sendData),
+          headers: headers,
+          body: JSON.stringify(formData),
           credentials: "include",
         }
       );

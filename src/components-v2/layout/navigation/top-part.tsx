@@ -17,9 +17,15 @@ function TopPart({ setIsOpen, isOpen }: TopPartProps) {
       <Link to={"/"} className="">
         <CockpitLogo className="size-10" />
       </Link>
-      <div className={cn("hover:bg-accent p-2 rounded-lg border-2 border-transparent cursor-pointer", !isOpen && "hidden")} onClick={() => setIsOpen((state) => !state)}>
-              <Sidebar className="size-6 shrink-0"  />
-              </div>
+      <div
+        className={cn(
+          "hover:bg-accent p-2 rounded-lg border-2 border-transparent cursor-pointer",
+          !isOpen && "hidden"
+        )}
+        onClick={() => setIsOpen((state) => !state)}
+      >
+        <Sidebar className="size-6 shrink-0" />
+      </div>
     </div>
   );
 }

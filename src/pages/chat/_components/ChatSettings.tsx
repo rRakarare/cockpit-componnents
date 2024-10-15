@@ -20,6 +20,10 @@ function ChatSettings({onSend}:ChatSettingsProps) {
             dispatch(setSendData({
                 chatId:id
             }))
+        } else {
+            dispatch(setSendData({
+                chatId:undefined
+            }))
         }
     }, [id])
     

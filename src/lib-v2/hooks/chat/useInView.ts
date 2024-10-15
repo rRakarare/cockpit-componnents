@@ -1,8 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useRef, useCallback, RefObject } from 'react';
 
-const useInView = (dependencies: unknown[]): [RefObject<HTMLDivElement>, boolean, () => void] => {
-  const [isInView, setIsInView] = useState(false);
+type InViewProps = {
+  isLoading: boolean;
+  autoScrollDependency: (string | null) [];
+  enableAutoScroll: boolean;
+}
+
+const useInView = ({ isLoading, autoScrollDependency, enableAutoScroll }: InViewProps
+): [RefObject<HTMLDivElement>, boolean, () => void] => {
+  const [isInView, setIsInView] = useState(true);
   const elementRef = useRef<HTMLDivElement>(null);
 
   const callbackFunction = useCallback((entries) => {
@@ -11,6 +18,8 @@ const useInView = (dependencies: unknown[]): [RefObject<HTMLDivElement>, boolean
   }, []);
 
   useEffect(() => {
+    if (isLoading) return;
+
     const observer = new IntersectionObserver(callbackFunction);
     const currentElement = elementRef.current;
 
@@ -23,7 +32,7 @@ const useInView = (dependencies: unknown[]): [RefObject<HTMLDivElement>, boolean
         observer.unobserve(currentElement);
       }
     };
-  }, [callbackFunction, ...dependencies]);
+  }, [isLoading, callbackFunction]);
 
   const scrollToElement: () => void = useCallback(() => {
     if (elementRef.current) {
@@ -34,6 +43,12 @@ const useInView = (dependencies: unknown[]): [RefObject<HTMLDivElement>, boolean
       });
     }
   }, []);
+
+  useEffect(() => {
+    if (enableAutoScroll) {
+      scrollToElement();
+    }
+  }, [...autoScrollDependency, enableAutoScroll, scrollToElement]);
 
   return [elementRef, isInView, scrollToElement];
 };

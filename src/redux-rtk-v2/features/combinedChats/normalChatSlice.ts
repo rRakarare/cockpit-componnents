@@ -12,6 +12,7 @@ type SliceState = {
     sendData: SendData | null;
 }
 
+
 const initialState: SliceState = {
     sendData: {
         message: "",
@@ -29,8 +30,10 @@ const chatSlice = createSlice({
             ...state.sendData,
             ...action.payload,
         };
-
-    }
+    },
+    resetState: (state) => {
+        state.sendData = initialState.sendData;
+    },
   },
 });
 
