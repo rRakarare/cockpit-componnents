@@ -17,7 +17,7 @@ export const useStream = ({ endpoint }: StreamProps) => {
 
   const responseRef = useRef<string>("");
   const [response, setResponse] = useState<string | null>(null);
-  const [upstream, setUpStream] = useState<string | null | undefined>(null);
+  const [upstream, setUpStream] = useState<string | null >(null);
   const [newChatId, setNewChatId] = useState<string | null>(null);
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
@@ -36,7 +36,7 @@ export const useStream = ({ endpoint }: StreamProps) => {
     const formData = sendData;
     dispatch(setSendData({message: ""}));
 
-    setUpStream(formData?.message);
+    setUpStream(formData?.message ?? null);
     setIsStreaming(true);
     try {
       const isCancelled = false;
