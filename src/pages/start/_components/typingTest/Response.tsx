@@ -8,7 +8,7 @@ type ResponseProps = {
 
 function Response({ response, addRandomSentence }: ResponseProps) {
 
-  const [displayedResponse, setDisplayedResponse] = useState<string>();
+  const [displayedResponse, setDisplayedResponse] = useState<string>("");
   const [index, setIndex] = useState<number>(0);
   
 

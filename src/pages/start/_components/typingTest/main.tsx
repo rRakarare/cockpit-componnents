@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Response from "./Response"
 import TypeOutput from "./TypeOutput"
+
 
 function Main() {
 
