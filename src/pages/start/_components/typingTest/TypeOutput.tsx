@@ -1,111 +1,87 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button } from '@/components-v2/ui/button';
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Button } from "@/components-v2/ui/button";
+import React, { useState, useEffect } from "react";
 
 interface TypingEffectProps {
   response: string[];
 }
 
-interface Task {
-  id: number;
-  execute: () => Promise<string>;
-}
-
-const createTask = (chunk: string, segmenter: Intl.Segmenter, setText: React.Dispatch<React.SetStateAction<string>>, delay: number) => {
-  return () => new Promise<string>((resolve) => {
-    
-    const words = Array.from(segmenter.segment(chunk)).map(item => item.segment)
-    console.log({chunk, words})
-    const addWords = async () => {
-      for (const word of words) {
-        await new Promise<void>(resolve => {
-          setTimeout(() => {
-            setText(prevText => {
-              const newText = prevText + word;
-              return newText;
-            });
-            resolve();
-          }, delay);
+const convertToText = async (
+  segments: string[],
+  setText: React.Dispatch<React.SetStateAction<string>>,
+  setSegments: React.Dispatch<React.SetStateAction<string[]>>,
+  delay: number
+) => {
+  for (const segment of segments) {
+    await new Promise<void>((resolve) => {
+      setTimeout(() => {
+        setText((prevText) => {
+          const newText = prevText + segment;
+          return newText;
         });
-      }
-      resolve("");
-    };
+        setSegments((prev) => prev.slice(1));
 
-    addWords();
-
-  })
-}
-
+        resolve();
+      }, delay);
+    });
+  }
+  
+};
 
 const useTypedText = (response: string[]) => {
-
-  const segmenter = new Intl.Segmenter('de', { granularity: 'word' });
+  const segmenter = new Intl.Segmenter("de", { granularity: "word" });
 
   const [chunkIndex, setChunkIndex] = useState<number>(0);
   const [text, setText] = useState<string>("");
-  const [tasks, setTasks] = useState<Task[]>([])
-  const [results, setResults] = useState<string[]>([])
-  const [isProcessing, setIsProcessing] = useState(false)
-  const nextTaskIdRef = useRef(1)
+  const [segments, setSegments] = useState<string[]>([]);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [delay, setDelay] = useState<number>(40);
 
+  const processSegment = async () => {
+    if (isProcessing || segments.length === 0) return;
+    setIsProcessing(true);
+    console.log("delay", delay);
 
-  const addTask = useCallback((chunk:string) => {
-    const delay = 5
-    const newTask: Task = {
-      id: nextTaskIdRef.current,
-      execute: createTask(chunk, segmenter, setText, delay)
-    }
-    setTasks(prevTasks => [...prevTasks, newTask])
-    nextTaskIdRef.current += 1
-  }, [])
+    await convertToText(segments, setText, setSegments, delay);
 
-  const processTasks = useCallback(async () => {
-    if (isProcessing || tasks.length === 0) return
-    setIsProcessing(true)
-
-    const currentTask = tasks[0]
-    try {
-      const result = await currentTask.execute()
-      setResults(prevResults => [...prevResults, result])
-      setTasks(prevTasks => prevTasks.slice(1))
-
-    } catch (error) {
-      console.error("Task failed:", error)
-    }
-
-    setIsProcessing(false)
-  }, [tasks, isProcessing, results.length])
+    setIsProcessing(false);
+  };
 
   useEffect(() => {
-    if (!isProcessing && tasks.length > 0) {
-      processTasks()
+    if (!isProcessing && segments.length > 0) {
+      processSegment();
     }
-  }, [isProcessing, tasks, processTasks])
+  }, [segments]);
 
   useEffect(() => {
     if (response.length > 0) {
-      addTask(response[chunkIndex])
-      setChunkIndex(prevIndex => prevIndex + 1)
+      const newSegments = Array.from(
+        segmenter.segment(response[chunkIndex])
+      ).map((item) => item.segment);
+      setSegments((prev) => {
+        const allSegments = [...prev, ...newSegments];
+        const timeToFinish = 2000
+        const maxTimePerSegment = 20
+        const timePerSegment = Math.min(timeToFinish / allSegments.length, maxTimePerSegment)
+        setDelay(timePerSegment)
+        return [...allSegments]
+      });
+      setChunkIndex((prev) => prev + 1);
     }
-  }, [response])
+  }, [response]);
 
-  
-  return {text}
-
-
-}
+  return { text };
+};
 
 const TypingEffect: React.FC<TypingEffectProps> = ({ response }) => {
-  
-  const {text} =  useTypedText(response);
+  const { text } = useTypedText(response);
 
-  return     <div className="w-full h-full bg-red-500 flex flex-col justify-between ">
-  <div className="m-4 overflow-y-scroll inline-block">
-      {text}
-  </div>
-  <Button>Test</Button>
-</div>
-
+  return (
+    <div className="w-full h-full bg-red-500 flex flex-col justify-between ">
+      <div className="m-4 overflow-y-scroll inline-block">{text}</div>
+      <Button>Test</Button>
+    </div>
+  );
 };
 
 export default TypingEffect;
