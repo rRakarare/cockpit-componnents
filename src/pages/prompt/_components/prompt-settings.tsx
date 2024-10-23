@@ -1,7 +1,7 @@
 import { Button } from "@/components-v2/ui/button";
 import { RootState, useAppDispatch } from "@/redux-rtk-v2/app/store";
 import { toggleListView } from "@/redux-rtk-v2/features/prompt/prompFilterSlice";
-import { LayoutList, Plus, SlidersHorizontal } from "lucide-react";
+import { LayoutList, Plus } from "lucide-react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import PromptFilter from "./filters/prompt-filter";
