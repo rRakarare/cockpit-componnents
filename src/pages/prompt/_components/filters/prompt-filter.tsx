@@ -9,9 +9,6 @@ import ResetFilter from "./reset-filter";
 function PromptInputFilters() {
   const filter = useSelector((state: RootState) => state.prompt.filter);
   const dispatch = useAppDispatch();
-
-  
-  console.log(filter?.type);
   
 
   const typeOptions = [

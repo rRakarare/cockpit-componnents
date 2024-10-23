@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Check, ChevronsUpDown, Filter } from "lucide-react"
+import { Check, Filter } from "lucide-react"
  
 import { Button } from "@/components-v2/ui/button"
 import {
@@ -50,7 +50,7 @@ function PromptFilterMany({ label, emptyPhrase, options, value }: PromptInputFil
           {label}
           <div className="flex ml-2 space-x-2">
           {value?.map((v) => (
-            <div className="border py-1 px-2 rounded-lg">{v}</div>
+            <div key={v} className="border py-1 px-2 rounded-lg">{v}</div>
           ))  
           }
           </div>
