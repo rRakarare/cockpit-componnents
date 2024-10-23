@@ -12,12 +12,14 @@ import copyToPromptReducer from "../features/copyToPrompt/copyToPromptSlice";
 import libraryTypeReducer from "../features/libraryType/libraryTypeSlice";
 import resetMiddleware from "../middlewares/resetMiddleware";
 import { useDispatch } from "react-redux";
+import { promptFilterReducer } from "../features/prompt/prompFilterSlice";
 
 const appReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
   auth: authSliceRed,
   chat: chatSliceRed,
   combinedChat: normalChatSliceRed,
+  prompt: promptFilterReducer,
   search: searchReducer,
   searchLib: searchLibReducer,
   imageChats: imageChatReducer,

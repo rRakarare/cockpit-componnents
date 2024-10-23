@@ -1,5 +1,5 @@
 import PromptGrid from "./_components/prompt-grid";
-import PromptFilter from "./_components/prompt-filter";
+import PromptSettings from "./_components/prompt-settings";
 import PromptBanner from "./_components/prompt-banner";
 import SinglePromptModal from "./id/modal";
 import CreatePromptModal from "./create/modal";
@@ -9,7 +9,7 @@ function Page() {
     <>
       <div className="space-y-4 my-topbar">
         <PromptBanner />
-        <PromptFilter />
+        <PromptSettings />
         <PromptGrid />
       </div>
       <SinglePromptModal />

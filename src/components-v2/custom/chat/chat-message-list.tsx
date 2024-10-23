@@ -11,7 +11,7 @@ interface ChatMessageListProps {
   isLoading: boolean;
   isFinished: boolean;
   isStreaming: boolean;
-  response: string | null;
+  response: string[] | null;
   upstream: string | null;
 }
 
@@ -21,8 +21,6 @@ const ChatMessageList: React.FC<ChatMessageListProps> = React.memo(
       useSyncedMessages({ response, upstream, isFinished });
 
     const [elementRef, isInView, scrollToElement] = useInView({isLoading, autoScrollDependency: [syncedResponse, syncedUpstream], enableAutoScroll: true});
-
-    console.log("messages", messages);
 
     return (
       <div className="flex-grow relative">
