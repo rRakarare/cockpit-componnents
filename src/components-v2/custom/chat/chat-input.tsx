@@ -15,8 +15,8 @@ function ChatInput({ children, onSend, onChange, value }: ChatInputProps) {
   const [openOptions, setOpenOptions] = useState(false);
 
   return (
-    <div className="shrink-0">
-      <div className=" mb-4 p-4 pt-0 max-w-4xl mx-auto">
+
+      <div className="pt-0 w-full max-w-4xl mx-auto shrink-0">
         <div
           className={cn(
             "px-4 -mb-1 rounded-t-2xl bg-accent mx-2 border max-h-0 duration-300 overflow-hidden border-foreground/10",
@@ -54,7 +54,7 @@ function ChatInput({ children, onSend, onChange, value }: ChatInputProps) {
           </div>
         </div>
       </div>
-    </div>
+
   );
 }
 

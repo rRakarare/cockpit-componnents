@@ -101,7 +101,7 @@
 
 
   .chat-history-item {
-    @apply w-full h-20 border rounded-md p-4 flex justify-between items-center hover:bg-accent/70
+    @apply w-full border rounded-md p-4 flex justify-between items-center hover:bg-accent/70
   }
 
   .no-scrollbar::-webkit-scrollbar {

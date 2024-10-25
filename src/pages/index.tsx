@@ -9,6 +9,7 @@ import Login from "./login/page";
 import Media from "./media/page";
 import MediaId from "./media/id/page";
 import Projects from "./projects/page";
+import ProjectId from "./projects/id/page";
 import Start from "./start/page";
 
 export {
@@ -23,5 +24,6 @@ export {
   Media,
   MediaId,
   Projects,
+  ProjectId,
   Start,
 };

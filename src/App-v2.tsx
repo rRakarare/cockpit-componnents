@@ -8,6 +8,7 @@ import {
   Login,
   Media,
   Projects,
+  ProjectId,
   Start,
   DataChatId,
   MediaId,
@@ -33,6 +34,7 @@ function App() {
             <Route path="/media" element={<Media />} />
             <Route path="/media/:id" element={<MediaId />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectId />} />
           </Route>
         </Route>
         <Route path="/login" element={<Login />} />
