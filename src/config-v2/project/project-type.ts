@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { z } from "zod";
 
 const ChatSchema = z.object({
@@ -7,7 +6,6 @@ const ChatSchema = z.object({
   projectId: z.string(),
 });
 
-type ChatType = z.infer<typeof ChatSchema>;
 
 const SourceSchema = z.object({
   id: z.string(),
@@ -17,7 +15,6 @@ const SourceSchema = z.object({
   fileSize: z.number(),
 });
 
-type SourceType = z.infer<typeof SourceSchema>;
 
 export const ProjectSchema = z.object({
   id: z.string(),
