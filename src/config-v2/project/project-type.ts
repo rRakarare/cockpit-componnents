@@ -38,7 +38,7 @@ export const dummyProjects: ProjectType[] = [
     icon: "🤖",
     description:
       "A project dedicated to discussing and analyzing ethical issues surrounding artificial intelligence.",
-    updatedAt: "2023-06-15T14:30:00Z",
+    updatedAt: "2024-10-15T14:30:00Z",
     chats: [],
     sources: [],
   },
@@ -49,7 +49,7 @@ export const dummyProjects: ProjectType[] = [
     icon: "🌍",
     description:
       "A project focused on understanding climate change trends and exploring mitigation strategies.",
-    updatedAt: "2023-06-18T09:45:00Z",
+    updatedAt: "2024-08-18T09:45:00Z",
     chats: [
       { id: "chat-004", name: "Temperature Anomalies", projectId: "proj-002" },
       {
@@ -88,7 +88,7 @@ export const dummyProjects: ProjectType[] = [
     icon: "🗣️",
     description:
       "An AI-powered language learning project that engages users in conversations to improve their skills.",
-    updatedAt: "2023-06-20T11:15:00Z",
+    updatedAt: "2024-06-20T11:15:00Z",
     chats: [
       {
         id: "chat-007",
