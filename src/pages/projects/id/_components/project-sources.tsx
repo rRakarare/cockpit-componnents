@@ -1,8 +1,9 @@
 import { Button } from "@/components-v2/ui/button";
+import { Progress } from "@/components-v2/ui/progress";
 import { ProjectType } from "@/config-v2/project/project-type";
 import { Ellipsis, File } from "lucide-react";
 
-function ProjectSources({ sources }: Pick<ProjectType, "sources">) {
+function ProjectSources({ sources, currentSize }: Pick<ProjectType, "sources" | "currentSize">) {
   if (sources.length === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center min-h-48 border rounded-xl p-4">
@@ -30,6 +31,12 @@ function ProjectSources({ sources }: Pick<ProjectType, "sources">) {
           </p>
         </div>
         <Button variant={"outline"}>Hinzufügen</Button>
+      </div>
+      <div className="px-4 py-2 flex flex-col space-y-2">
+      <Progress className="h-2" value={33} />
+      <p className="text-muted-foreground text-sm">
+        {currentSize} %  used
+      </p>
       </div>
       <div className="border-t flex flex-col">
         {sources.map((source) => (

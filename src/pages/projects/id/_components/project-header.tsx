@@ -7,7 +7,7 @@ function ProjectHeader({
 }: Pick<ProjectType, "name" | "icon" | "description">) {
 
   return (
-    <div className="flex px-6 items-center space-x-3 border-b border-t py-4">
+    <div className="flex px-6 items-center space-x-3 border-b mb-8 py-4">
       <div className="bg-accent p-3 rounded-lg">{icon}</div>
       <div>
         <p className="font-semibold mb-1 text-2xl">{name}</p>

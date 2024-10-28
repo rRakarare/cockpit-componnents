@@ -1,3 +1,4 @@
+import { Button } from "@/components-v2/ui/button"
 import { Input } from "@/components-v2/ui/input"
 import { Search } from "lucide-react"
 
@@ -12,6 +13,7 @@ function ProjectFilter() {
         className="pl-8 max-w-96"
       />
     </div>
+    <Button variant={"outline"}>Projekt Hinzufügen</Button>
     </div>
   )
 }

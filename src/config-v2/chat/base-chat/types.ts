@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const ModelSchema = z.enum(["GPT-4o", "Claude 3.5 Sonnet", "GPT-4"]);
+export const ModelSchema = z.enum(["GPT-4o", "Claude 3.5 Sonnet", "GPT-4"]);
 
 const MessageSchema = z.object({
   _id: z.string(),

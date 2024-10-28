@@ -25,7 +25,7 @@ function PromptSettings() {
         <Button asChild>
         <Link to={"/prompt/create"} >
           <Plus className="size-5 mr-2" />
-          Neuer Prompt
+          Hinzufügen
         </Link>
         </Button>
       </div>

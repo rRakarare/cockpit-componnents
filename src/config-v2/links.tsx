@@ -32,7 +32,7 @@ export const directLinks: link_type[] = [
   },
   {
     href: "/prompt",
-    text: "Prompt Bibliothek",
+    text: "Bibliothek",
     icon: <Book className="size-6 shrink-0" />,
   },
   {

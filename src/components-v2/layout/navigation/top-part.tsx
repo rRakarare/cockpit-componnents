@@ -15,9 +15,9 @@ function TopPart({ setIsOpen, isOpen }: TopPartProps) {
       id="top"
       className="border-b flex items-center justify-between shrink-0 px-3 w-full h-topbar relative"
     >
-      <Link to={"/"} className="w-full flex items-center justify-center">
+      <Link to={"/"} className="w-full">
         {/* <CockpitLogo className="size-10" /> */}
-        <UzinLogo className="size-7" />
+        <UzinLogo className="size-7 ml-1" />
       </Link>
       <div
         className={cn(
