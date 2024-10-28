@@ -3,8 +3,8 @@ import { MessageType } from "@/redux-rtk-v2/types/chats/message";
 import { useEffect, useState } from "react";
 
 interface Props {
-  response: string[] | null;
-  upstream: string | null;
+  response: string | null | undefined;
+  upstream: string | null | undefined;
   isFinished?: boolean;
 }
 
@@ -21,7 +21,7 @@ export const useSyncedMessages = ({
 
   useEffect(() => {
     if (response) {
-      setSyncedResponse(response.join(" "));
+      setSyncedResponse(response);
     }
   }, [response]);
 

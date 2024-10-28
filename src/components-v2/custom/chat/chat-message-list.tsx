@@ -5,20 +5,23 @@ import { MessageType } from "@/redux-rtk-v2/types/chats/message";
 import useInView from "@/lib-v2/hooks/chat/useInView";
 import { Button } from "@/components-v2/ui/button";
 import { cn } from "@/lib-v2/utils";
+import { useAnimatedText } from "@/lib-v2/hooks/chat/useAnimatedText";
 
 interface ChatMessageListProps {
   messages: Partial<MessageType[]> | undefined;
   isLoading: boolean;
   isFinished: boolean;
   isStreaming: boolean;
-  response: string[] | null;
-  upstream: string | null;
+  response: string | null | undefined;
+  upstream: string | null | undefined;
 }
 
 const ChatMessageList: React.FC<ChatMessageListProps> = React.memo(
   ({ messages, isLoading, response, upstream, isStreaming, isFinished }) => {
     const { syncedMessages, syncedResponse, syncedUpstream } =
       useSyncedMessages({ response, upstream, isFinished });
+
+      const animatedResponse = useAnimatedText(syncedResponse || "")
 
     const [elementRef, isInView, scrollToElement] = useInView({isLoading, autoScrollDependency: [syncedResponse, syncedUpstream], enableAutoScroll: true});
 
@@ -46,7 +49,7 @@ const ChatMessageList: React.FC<ChatMessageListProps> = React.memo(
               <ChatMessage content={syncedUpstream} role="user" />
             )}
             {syncedResponse && (
-              <ChatMessage isStreaming={isStreaming} content={syncedResponse} role="assistant" />
+              <ChatMessage isStreaming={isStreaming} content={animatedResponse} role="assistant" />
             )}
           </div>
 

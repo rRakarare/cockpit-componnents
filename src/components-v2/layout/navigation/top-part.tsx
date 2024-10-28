@@ -1,4 +1,5 @@
-import CockpitLogo from "@/components-v2/custom/unsorted/logo";
+// import CockpitLogo from "@/components-v2/custom/unsorted/logo";
+import UzinLogo from "@/components-v2/custom/unsorted/uzin/logo";
 import { cn } from "@/lib-v2/utils";
 import { Sidebar } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -14,8 +15,9 @@ function TopPart({ setIsOpen, isOpen }: TopPartProps) {
       id="top"
       className="border-b flex items-center justify-between shrink-0 px-3 w-full h-topbar relative"
     >
-      <Link to={"/"} className="">
-        <CockpitLogo className="size-10" />
+      <Link to={"/"} className="w-full flex items-center justify-center">
+        {/* <CockpitLogo className="size-10" /> */}
+        <UzinLogo className="size-7" />
       </Link>
       <div
         className={cn(

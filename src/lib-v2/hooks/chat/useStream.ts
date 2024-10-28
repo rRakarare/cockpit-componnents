@@ -16,8 +16,8 @@ export const useStream = ({ endpoint }: StreamProps) => {
   const dispatch = useAppDispatch();
 
   const responseRef = useRef<string>("");
-  const [response, setResponse] = useState<string[] | null>(null);
-  const [upstream, setUpStream] = useState<string | null >(null);
+  const [response, setResponse] = useState<string | null>(null);
+  const [upstream, setUpStream] = useState<string | null | undefined>(null);
   const [newChatId, setNewChatId] = useState<string | null>(null);
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
@@ -36,7 +36,7 @@ export const useStream = ({ endpoint }: StreamProps) => {
     const formData = sendData;
     dispatch(setSendData({message: ""}));
 
-    setUpStream(formData?.message ?? null);
+    setUpStream(formData?.message);
     setIsStreaming(true);
     try {
       const isCancelled = false;
@@ -68,17 +68,11 @@ export const useStream = ({ endpoint }: StreamProps) => {
             const data = value.split("KIChatID:")[1];
             setNewChatId(data);
           } else {
-            setResponse(current => {
-              if (current) {
-                return [...current, value];
-              } else {
-                return [value];
-              }
-            });
+            responseRef.current = responseRef.current + value;
           }
         }
 
-
+        setResponse(responseRef.current);
         if (done) {
           setIsStreaming(false);
           setIsFinished(true);
