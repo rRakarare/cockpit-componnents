@@ -64,6 +64,55 @@ const promptFilterSlice = createSlice({
         type,
       };
     },
+    setLabelFilter: (state, action: PayloadAction<string>) => {
+      let labels = state.filter?.labels;
+
+      switch (true) {
+        case labels === null:
+          labels = [action.payload];
+          break;
+        case labels && labels.includes(action.payload) && labels.length === 1:
+          labels = null;
+          break;
+        case labels && labels.includes(action.payload):
+          labels = labels.filter((l) => l !== action.payload);
+          break;
+        case labels && !labels?.includes(action.payload):
+          labels = [...labels, action.payload];
+          break;
+      }
+
+      state.filter = {
+        ...state.filter,
+        labels,
+      };
+    },
+    setListFilter: (state, action: PayloadAction<"created" | "liked" | null>) => {
+      if (action.payload === state.filter?.list) {
+        state.filter = {
+          ...state.filter,
+          list: null,
+        };
+      } else {
+      state.filter = {
+        ...state.filter,
+        list: action.payload,
+      };
+      }
+    },
+    setCustomListFilter: (state, action: PayloadAction<string>) => {
+      if (action.payload === state.filter?.customList) {
+        state.filter = {
+          ...state.filter,
+          customList: null,
+        };
+      } else {
+      state.filter = {
+        ...state.filter,
+        customList: action.payload,
+      };
+      }
+    },
     resetFilter: (state) => {
       state.filter = initialPromptState.filter;
     },
@@ -76,6 +125,6 @@ const promptFilterSlice = createSlice({
   },
 });
 
-export const { resetFilter, setFilter, setPage, toggleListView, setTypeFilter } =
+export const { resetFilter, setFilter, setPage, toggleListView, setTypeFilter, setLabelFilter, setCustomListFilter, setListFilter } =
   promptFilterSlice.actions;
 export const promptFilterReducer = promptFilterSlice.reducer;

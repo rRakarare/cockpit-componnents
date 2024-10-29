@@ -34,7 +34,7 @@ interface PromptInputFilterProps {
 
 
 
-function PromptFilterMany({ label, emptyPhrase, options, value }: PromptInputFilterProps) {
+function FilterSingle({ label, emptyPhrase, options, value }: PromptInputFilterProps) {
 
   const [open, setOpen] = React.useState(false)
 
@@ -87,4 +87,4 @@ function PromptFilterMany({ label, emptyPhrase, options, value }: PromptInputFil
   )
 }
 
-export default PromptFilterMany
+export default FilterSingle
