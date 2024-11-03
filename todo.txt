@@ -1,0 +1,7 @@
+Data-Chat Anpassen like Projekte
+
+• Ohne Quellen
+• Description
+• Instruction (only read)
+• Mit Gruppen anstelle Benutzer
+• DatenSilo Icon mit Color

@@ -1,31 +1,7 @@
 import { z } from "zod";
+import { IconColors, IconSchema } from "../icons/types/icon-types";
 
-const PromptIconSchema = z.enum([
-  "mail",
-  "at-sign",
-  "phone",
-  "message",
-  "user",
-  "users",
-  "home",
-  "briefcase",
-  "calendar",
-  "clock",
-  "map-pin",
-  "map",
-  "compass",
-  "edit",
-]);
 
-export type PromptIconType = z.infer<typeof PromptIconSchema>;
-
-const PromptColors = z.enum([
-  "hsl(var(--prompt-1))",
-  "hsl(var(--prompt-2))",
-  "hsl(var(--prompt-3))",
-  "hsl(var(--prompt-4))",
-  "hsl(var(--prompt-5))",
-]);
 
 const SubCategorySchema = z.object({
   _id: z.string(),
@@ -49,8 +25,8 @@ export const PromptSchema = z.object({
   name: z.string(),
   category: CategorySchema,
   subCategory: SubCategorySchema,
-  icon: PromptIconSchema,
-  color: PromptColors,
+  icon: IconSchema,
+  color: IconColors,
   prompt: z.string(),
   description: z.string(),
   model: z.string(),

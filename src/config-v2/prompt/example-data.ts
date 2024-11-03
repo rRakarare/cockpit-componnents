@@ -19,7 +19,7 @@ export const prompts: PromptType[] = [
           name: "Business Communication"
         },
         icon: "mail",
-        color: "hsl(var(--prompt-1))",
+        color: "hsl(var(--icon-1))",
         prompt: "Compose a professional email to [recipient] regarding [topic]. The tone should be [formal/informal] and include [specific details].",
         description: "Generate tailored business emails quickly and efficiently.",
         model: "gpt-4",
@@ -49,7 +49,7 @@ export const prompts: PromptType[] = [
           name: "Code Analysis"
         },
         icon: "edit",
-        color: "hsl(var(--prompt-2))",
+        color: "hsl(var(--icon-2))",
         prompt: "Explain the following code snippet in simple terms: [code snippet]",
         description: "Break down complex code into easy-to-understand explanations.",
         model: "gpt-3.5-turbo",
@@ -79,7 +79,7 @@ export const prompts: PromptType[] = [
           name: "Itinerary"
         },
         icon: "map",
-        color: "hsl(var(--prompt-3))",
+        color: "hsl(var(--icon-3))",
         prompt: "Create a [number of days] day itinerary for a trip to [destination], including must-see attractions, local cuisine recommendations, and transportation options.",
         description: "Plan detailed travel itineraries for any destination.",
         model: "gpt-4",
@@ -109,7 +109,7 @@ export const prompts: PromptType[] = [
           name: "Recipe Creation"
         },
         icon: "home",
-        color: "hsl(var(--prompt-4))",
+        color: "hsl(var(--icon-4))",
         prompt: "Create a recipe using the following ingredients: [list of ingredients]. The dish should be suitable for [dietary restrictions] and take no more than [time limit] to prepare.",
         description: "Generate unique recipes based on available ingredients and dietary needs.",
         model: "gpt-3.5-turbo",
@@ -139,7 +139,7 @@ export const prompts: PromptType[] = [
           name: "Branding"
         },
         icon: "message",
-        color: "hsl(var(--prompt-5))",
+        color: "hsl(var(--icon-5))",
         prompt: "Create a catchy marketing slogan for [product/service] that highlights its [key features/benefits] and appeals to [target audience].",
         description: "Generate memorable slogans for marketing campaigns.",
         model: "gpt-4",
@@ -169,7 +169,7 @@ export const prompts: PromptType[] = [
           name: "Data Analysis"
         },
         icon: "briefcase",
-        color: "hsl(var(--prompt-1))",
+        color: "hsl(var(--icon-1))",
         prompt: "Analyze the following dataset: [dataset]. Provide insights on [specific metrics], identify trends, and suggest potential actions based on the findings.",
         description: "Extract valuable insights from complex datasets.",
         model: "gpt-4",
@@ -199,7 +199,7 @@ export const prompts: PromptType[] = [
           name: "Translation"
         },
         icon: "message",
-        color: "hsl(var(--prompt-2))",
+        color: "hsl(var(--icon-2))",
         prompt: "Translate the following text from [source language] to [target language], maintaining the original tone and context: [text to translate]",
         description: "Accurate translations between multiple languages.",
         model: "gpt-3.5-turbo",
@@ -229,7 +229,7 @@ export const prompts: PromptType[] = [
           name: "Fitness"
         },
         icon: "user",
-        color: "hsl(var(--prompt-3))",
+        color: "hsl(var(--icon-3))",
         prompt: "Create a [duration] workout plan for [fitness goal], suitable for someone with [fitness level] and access to [available equipment]. Include warm-up, main exercises, and cool-down routines.",
         description: "Generate personalized workout plans tailored to individual needs and goals.",
         model: "gpt-4",
@@ -259,7 +259,7 @@ export const prompts: PromptType[] = [
           name: "Fiction"
         },
         icon: "edit",
-        color: "hsl(var(--prompt-4))",
+        color: "hsl(var(--icon-4))",
         prompt: "Write a short story in the [genre] genre, featuring a character who [character description] and faces a conflict involving [conflict description]. The story should be approximately [word count] words long.",
         description: "Generate creative short stories based on specific parameters.",
         model: "gpt-4",
@@ -289,7 +289,7 @@ export const prompts: PromptType[] = [
           name: "Investment"
         },
         icon: "briefcase",
-        color: "hsl(var(--prompt-5))",
+        color: "hsl(var(--icon-5))",
         prompt: "Provide investment advice for someone with [income level], [risk tolerance], and [financial goals]. Consider factors such as [specific factors] and suggest a diversified portfolio allocation.",
         description: "Offer personalized financial advice and investment strategies.",
         model: "gpt-4",
@@ -319,7 +319,7 @@ export const prompts: PromptType[] = [
           name: "Social Media"
         },
         icon: "users",
-        color: "hsl(var(--prompt-1))",
+        color: "hsl(var(--icon-1))",
         prompt: "Create a series of [number] social media posts for [platform] to promote [product/service]. Include engaging captions, relevant hashtags, and ideas for visuals that align with the brand's [tone/style].",
         description: "Generate creative and engaging social media content for various platforms.",
         model: "gpt-3.5-turbo",
@@ -349,7 +349,7 @@ export const prompts: PromptType[] = [
           name: "Contract Drafting"
         },
         icon: "edit",
-        color: "hsl(var(--prompt-2))",
+        color: "hsl(var(--icon-2))",
         prompt: "Draft a [type of legal document] for [specific purpose], including clauses for [key points to cover]. Ensure the language is clear, concise, and legally sound.",
         description: "Generate professional legal documents tailored to specific needs.",
         model: "gpt-4",
@@ -379,7 +379,7 @@ export const prompts: PromptType[] = [
           name: "Product Listings"
         },
         icon: "mail",
-        color: "hsl(var(--prompt-3))",
+        color: "hsl(var(--icon-3))",
         prompt: "Write a compelling product description for [product name], highlighting its [key features], [benefits], and [unique selling points]. The description should be approximately [word count] words and appeal to [target audience].",
         description: "Create engaging product descriptions that drive sales.",
         model: "gpt-3.5-turbo",

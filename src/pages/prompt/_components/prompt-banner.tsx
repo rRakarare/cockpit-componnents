@@ -8,7 +8,7 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import { prompts } from "@/config-v2/prompt/example-data";
 import { PromptType } from "@/config-v2/prompt/types";
-import { getPromptIcon } from "@/config-v2/prompt/icon-map";
+import { getIcon } from "@/config-v2/icons/icon-map";
 
 function PromptBanner() {
   return (
@@ -44,7 +44,7 @@ const PromptBannerItem = ({ name, description, color, icon }: Partial<PromptType
         <p className="text-muted-foreground">{description}</p>
         </div>
         <div style={{background: color}} className="w-8 h-8 bg-primary text-primary-foreground rounded-full inline-flex items-center justify-center shrink-0 self-end">
-        {getPromptIcon({iconName: icon})}
+        {getIcon({iconName: icon})}
       </div>
       </div>
     </CarouselItem>

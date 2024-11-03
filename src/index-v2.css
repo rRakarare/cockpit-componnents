@@ -1,3 +1,6 @@
+@import './config-v2/icons/icon-colors.css';
+
+/* Ensure Tailwind CSS is properly configured */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,11 +34,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
 
-    --prompt-1: 12 76% 61%;
-    --prompt-2: 173 58% 39%;
-    --prompt-3: 197 37% 24%;
-    --prompt-4: 43 74% 66%;
-    --prompt-5: 27 87% 67%;
 
     --topbar-height: 3.5rem;
   }
@@ -67,11 +65,6 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-    --prompt-1: 220 70% 50%;
-    --prompt-2: 160 60% 45%;
-    --prompt-3: 30 80% 55%;
-    --prompt-4: 280 65% 60%;
-    --prompt-5: 340 75% 55%;
   }
 }
 

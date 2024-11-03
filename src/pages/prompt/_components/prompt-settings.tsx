@@ -8,8 +8,10 @@ import PromptFilter from "./filters/prompt-filter";
 
 function PromptSettings() {
 
-  const {isList} = useSelector((state: RootState) => state.prompt);
+  const {isList, filter} = useSelector((state: RootState) => state.prompt);
   const dispatch = useAppDispatch();
+
+  console.log("filter",filter)
 
   return (
     <div className="topbar justify-between bg-background/60 backdrop-blur-lg py-10">

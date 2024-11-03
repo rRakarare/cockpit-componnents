@@ -10,7 +10,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-  
+    
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -28,7 +28,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": false,
+    "noImplicitAny": false,
   },
   "include": ["src"]
 }

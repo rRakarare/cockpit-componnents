@@ -14,14 +14,14 @@ import {
   User,
   Users,
 } from "lucide-react";
-import { PromptIconType } from "./types";
 import { cn } from "@/lib-v2/utils";
+import { IconType } from "./types/icon-types";
 
-export const getPromptIcon = ({
+export const getIcon = ({
   iconName,
   className,
 }: {
-  iconName: PromptIconType|undefined;
+  iconName: IconType|undefined;
   className?: string;
 }) => {
   switch (iconName) {

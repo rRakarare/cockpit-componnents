@@ -1,16 +1,21 @@
-import ChatMessageList from "@/components-v2/custom/chat/chat-message-list";
-import ChatSettings from "../_components/ChatSettings";
-import { useChat } from "@/pages/chat/_components/hooks/useChat";
+import { dummySilos } from "@/config-v2/datasilo/example-data/data";
+import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types";
+import { useParams } from "react-router-dom";
+import SiloBreadcrumb from "./_components/silo-breadcrumb";
+import SiloHeader from "./_components/silo-header";
+import SiloDetails from "./_components/silo-details";
 
 function Page() {
 
-  const { chat, isLoadingChats, stream, upstream, response, isFinished,isStreaming } = useChat();
+  const { id } = useParams<{ id: string }>();
 
+  const {display_name, description, icon, color, chats, groups, system_message} = dummySilos.find((p) => p.id === Number(id)) as DataSiloType
 
   return (
-    <div className="flex flex-col h-screen max-h-screen justify-center">
-      <ChatMessageList messages={chat?.messages} isLoading={isLoadingChats} upstream={upstream} response={response} isFinished={isFinished} isStreaming={isStreaming} />
-      <ChatSettings onSend={stream} />
+    <div>
+      <SiloBreadcrumb />
+    <SiloHeader display_name={display_name} description={description} icon={icon} color={color} />
+    <SiloDetails chats={chats} groups={groups} system_message={system_message}  />
     </div>
   );
 }

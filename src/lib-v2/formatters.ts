@@ -9,7 +9,7 @@ export const dateTimeFormatter = new Intl.DateTimeFormat("de-DE", {
   timeZone: "Europe/Berlin",
 });
 
-export const getLastMessage = (updatedAt?: string) => {
+export const getLastMessage = (updatedAt?: string | Date) => {
   if (!updatedAt) return "";
   const today = new Date();
   const date = new Date(updatedAt);
