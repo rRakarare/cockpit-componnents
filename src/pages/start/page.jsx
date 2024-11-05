@@ -18,7 +18,7 @@ function Page() {
         )}
       />
       <div className="space-y-5">
-      <h2 className="text-6xl font-bold">Hallo Morty</h2>
+      <h2 className="text-6xl font-bold">Hallo Matthias</h2>
       <h2 className="text-6xl font-bold">Wo soll die Reise heute hingehen?</h2>
       </div>
       <CardGrid />
