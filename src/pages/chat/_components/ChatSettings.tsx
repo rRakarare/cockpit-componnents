@@ -16,9 +16,10 @@ import { ModelSchema } from "@/config-v2/chat/base-chat/types";
 
 type ChatSettingsProps = {
   onSend: () => void;
+  openOnRender?: boolean;
 };
 
-function ChatSettings({ onSend }: ChatSettingsProps) {
+function ChatSettings({ onSend, openOnRender }: ChatSettingsProps) {
   const { id } = useParams<{ id: string | undefined }>();
 
   useEffect(() => {
@@ -57,8 +58,9 @@ function ChatSettings({ onSend }: ChatSettingsProps) {
         value={sendData?.message}
         onChange={handleChange}
         onSend={onSend}
+        openOnRender={openOnRender}
       >
-        <Select>
+        <Select defaultValue={ModelSchema.options[0]}>
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Model" />
           </SelectTrigger>

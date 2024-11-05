@@ -19,7 +19,7 @@ function Page() {
       <div className="w-[768px] flex flex-col space-y-6 items-center">
         <h2 className="text-4xl font-bold">Willkommen im Chat!</h2>
       <div className="w-full">
-      <ChatSettings onSend={()=>navigate(`/chat/newChat`, { state: { startStream: true } })}  />
+      <ChatSettings openOnRender onSend={()=>navigate(`/chat/newChat`, { state: { startStream: true } })}  />
       </div>
       </div>
     
