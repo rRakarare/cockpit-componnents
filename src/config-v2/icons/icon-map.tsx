@@ -54,6 +54,7 @@ export const getIcon = ({
     case "compass":
       return <Compass className={cn("size-4", className)} />;
     case "edit":
+      return <Edit className={cn("size-4", className)} />;
     default:
       return <></>;
   }
