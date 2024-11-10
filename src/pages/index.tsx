@@ -5,6 +5,8 @@ import Chats from "./chats/page";
 import DataChat from "./data-chat/page";
 import DataChatId from "./data-chat/id/page";
 import Prompt from "./prompt/page";
+import PromptCreate from "./prompt/create/page";
+import PromptId from "./prompt/id/page";
 import Login from "./login/page";
 import Media from "./media/page";
 import MediaId from "./media/id/page";
@@ -20,6 +22,8 @@ export {
   DataChat,
   DataChatId,
   Prompt,
+  PromptCreate,
+  PromptId,
   Login,
   Media,
   MediaId,

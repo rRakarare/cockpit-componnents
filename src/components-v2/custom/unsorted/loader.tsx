@@ -16,3 +16,9 @@ function Loader() {
 }
 
 export default Loader
+
+export const LoadingDataIcon = ({className}: {className?:string}) => {
+  return (
+    <LoaderCircle className={cn("size-12 animate-spin", className)} />
+  )
+}

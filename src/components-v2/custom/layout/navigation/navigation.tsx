@@ -1,13 +1,13 @@
 
-import ChatHistory from "./chat-history";
-import NavLinks from "./navlinks";
-import Settings from "./settings";
+import ChatHistory from "./_components/chat-history";
+import NavLinks from "./_components/navlinks";
+import Settings from "./_components/settings";
 import { useState } from "react";
 import { cn } from "@/lib-v2/utils";
-import TopPart from "./top-part";
+import TopPart from "./_components/top-part";
 import { AlignLeft } from "lucide-react";
 import { Button } from "@/components-v2/ui/button";
-import ToggleNavbar from "./toggle-navbar";
+import ToggleNavbar from "./_components/toggle-navbar";
 
 function Navigation() {
 

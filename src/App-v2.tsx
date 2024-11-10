@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Chat,
-  Assistants,
   Chats,
   DataChat,
   Prompt,
+  PromptId,
+  PromptCreate,
   Login,
   Media,
   Projects,
@@ -14,8 +15,9 @@ import {
   MediaId,
   ChatId,
 } from "./pages";
-import MainLayout from "./components-v2/layout/layout";
+import MainLayout from "./components-v2/custom/layout/layout";
 import Protected from "./components-v2/custom/auth/AuthCheck";
+import { hrefMap } from "./config-v2/links";
 
 function App() {
   return (
@@ -23,21 +25,23 @@ function App() {
       <Routes>
         <Route element={<Protected />}>
           <Route element={<MainLayout />}>
-            <Route path="/" element={<Start />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/chat/:id" element={<ChatId />} />
-            <Route path="/assistants" element={<Assistants />} />
-            <Route path="/chats" element={<Chats />} />
-            <Route path="/data-chat" element={<DataChat />} />
-            <Route path="/data-chat/:id" element={<DataChatId />} />
-            <Route path="/prompt/:id?" element={<Prompt />} />
-            <Route path="/media" element={<Media />} />
-            <Route path="/media/:id" element={<MediaId />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:id" element={<ProjectId />} />
+            <Route path={`${hrefMap.start.href}`} element={<Start />} />
+            <Route path={`${hrefMap.chat.href}`} element={<Chat />} />
+            <Route path={`${hrefMap.chat.href}/:id`} element={<ChatId />} />
+            <Route path={`${hrefMap.history.href}`} element={<Chats />} />
+            <Route path={`${hrefMap.dataSilo.href}`} element={<DataChat />} />
+            <Route path={`${hrefMap.dataSilo.href}/:id`} element={<DataChatId />} />
+            <Route path={`${hrefMap.prompt.href}`} element={<Prompt />} />
+            <Route path={`${hrefMap.prompt.href}/create`} element={<PromptCreate />} />
+            <Route path={`${hrefMap.prompt.href}/:id`} element={<PromptId />} />
+
+            <Route path={`${hrefMap.media.href}`} element={<Media />} />
+            <Route path={`${hrefMap.media.href}/:id`} element={<MediaId />} />
+            <Route path={`${hrefMap.project.href}`} element={<Projects />} />
+            <Route path={`${hrefMap.project.href}/:id`} element={<ProjectId />} />
           </Route>
         </Route>
-        <Route path="/login" element={<Login />} />
+        <Route path={`${hrefMap.login.href}`} element={<Login />} />
 
         <Route path="/*" element={<>notFound</>} />
       </Routes>

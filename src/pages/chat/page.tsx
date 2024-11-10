@@ -14,6 +14,7 @@ function Page() {
       <div className="absolute -z-30">
       <CockpitLogoBackGround className="w-[1000px] " />
       </div>
+
     
     
       <div className="w-[768px] flex flex-col space-y-6 items-center">

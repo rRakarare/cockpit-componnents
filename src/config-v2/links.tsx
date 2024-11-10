@@ -5,47 +5,62 @@ import {
 } from "lucide-react";
 import { ChatIcon } from "@/components-v2/custom/chat/chat-icon";
 
-export type link_type = {
+
+export interface linkType {
   href: string;
   text: string;
-  icon: ReactElement;
-  isOpenNav?: boolean;
+  icon?: ReactElement;
   state?: object;
-};
+}
 
-export const directLinks: link_type[] = [
-  {
+
+export const hrefMap = {
+  start: {
+    href: "/",
+    text: "Start",
+  },
+  login: {
+    href: "/login",
+    text: "Login",
+  },
+  chat: {
     href: "/chat",
     text: "Chat",
     icon: <ChatIcon className="size-6 shrink-0" type="chat" />,
-    state: {reset: true}
   },
-  {
+  dataSilo: {
     href: "/data-chat",
     text: "Data-Chat",
     icon: <ChatIcon className="size-6 shrink-0" type="data-chat" />,
   },
-  {
+  project: {
     href: "/projects",
     text: "Projekte",
     icon: <ChatIcon className="size-6 shrink-0" type="project" />,
   },
-  {
+  prompt: {
     href: "/prompt",
     text: "Bibliothek",
     icon: <Book className="size-6 shrink-0" />,
   },
-  {
+  media: {
     href: "/media",
     text: "Studio",
     icon: <ChatIcon className="size-6 shrink-0" type="image-chat" />,
   },
-  {
-    href: "/chats",
+  history: {
+    href: "/history",
     text: "Verlauf",
     icon: <History className="size-6 shrink-0" />,
   },
+};
 
-];
 
-export const allLinks: link_type[] = [...directLinks];
+export const navLinks: linkType[] = [
+  hrefMap.chat,
+  hrefMap.dataSilo,
+  hrefMap.project,
+  hrefMap.prompt,
+  hrefMap.media,
+  hrefMap.history,
+]

@@ -1,7 +1,7 @@
-import { ProjectType } from "@/config-v2/project/project-type";
+import { ProjectDetailType } from "@/types/db/project";
 import { MessageCircle } from "lucide-react";
 
-function ProjectChats({ chats }: Pick<ProjectType, "chats">) {
+function ProjectChats({ chats }: Pick<ProjectDetailType, "chats">) {
   if (chats.length === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center min-h-72 border rounded-xl p-4">
@@ -20,14 +20,14 @@ function ProjectChats({ chats }: Pick<ProjectType, "chats">) {
     <div className="flex flex-col space-y-2">
       {chats.map((chat) => (
         <div
-          key={chat.id}
+          key={chat.chat_uuid}
           className="w-full flex space-x-3 py-2  border px-4 rounded-xl items-center hover:bg-accent cursor-pointer"
         >
           <div className="p-1 border rounded-lg">
             <MessageCircle className="size-4" />
           </div>
           <div>
-            <div>{chat.name}</div>
+            <div>{chat.title}</div>
             <div className="text-gray-500 text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </div>

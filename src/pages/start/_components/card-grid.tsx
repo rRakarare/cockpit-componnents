@@ -1,4 +1,4 @@
-import { allLinks } from "@/config-v2/links";
+import { navLinks } from "@/config-v2/links";
 import Card from "./card";
 import { AnimatedGroup } from "@/components-v2/motion-primitives/animated-group";
 
@@ -8,7 +8,7 @@ function CardGrid() {
       className="grid grid-cols-2 gap-4 p-8 md:grid-cols-3 lg:grid-cols-4"
       preset="scale"
     >
-      {allLinks.map((item, i) => (
+      {navLinks.map((item, i) => (
         <Card key={i} title={item.text} icon={item.icon} href={item.href} />
       ))}
     </AnimatedGroup>

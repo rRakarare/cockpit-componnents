@@ -1,24 +1,19 @@
-import { Input } from "@/components-v2/ui/input";
 import ResetFilter from "./reset-filter";
 import TypeFilter from "./type-filter";
 import LabelFilter from "./label-filter";
 import ListFilter from "./list-filter";
+import SearchFilter from "./search-filter";
 
 function PromptInputFilters() {
 
-  
-
-
-
-
   return (
-    <>
-      <Input placeholder="Search" className="shrink-0 max-w-56"/>
+    <div className="flex space-x-2">
+      <SearchFilter />
       <LabelFilter />
       <TypeFilter />
       <ListFilter />
       <ResetFilter />
-    </>
+    </div>
   );
 }
 
