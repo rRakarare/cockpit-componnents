@@ -9,6 +9,7 @@ import {
 } from "../form";
 import { Input } from "../input";
 import { Path, UseFormReturn } from "react-hook-form";
+import { cn } from "@/lib-v2/utils";
 
 interface TextInputProps<F extends ZodSchema> {
   form: UseFormReturn<z.infer<F>>;
@@ -17,6 +18,7 @@ interface TextInputProps<F extends ZodSchema> {
   label?: string;
   placeholder?: string;
   description?: string;
+  className?: string;
 }
 
 function TextInput<F extends ZodSchema>({
@@ -25,13 +27,14 @@ function TextInput<F extends ZodSchema>({
   label,
   placeholder,
   description,
+  className
 }: TextInputProps<F>) {
   return (
     <FormField
       control={form.control}
       name={name} // Properly type the name prop
       render={({ field }) => (
-        <FormItem>
+        <FormItem className={cn("", className)}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
             <Input placeholder={placeholder} {...field} />

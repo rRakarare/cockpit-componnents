@@ -17,13 +17,15 @@ import {
 import { cn } from "@/lib-v2/utils";
 import { IconType } from "./types/icon-types";
 
+import { ReactElement } from "react";
+
 export const getIcon = ({
   iconName,
   className,
 }: {
-  iconName: IconType|undefined;
+  iconName: IconType | undefined;
   className?: string;
-}) => {
+}): ReactElement => {
   switch (iconName) {
     case "mail":
       return <Mail className={cn("size-4", className)} />;
@@ -52,9 +54,7 @@ export const getIcon = ({
     case "compass":
       return <Compass className={cn("size-4", className)} />;
     case "edit":
-      return <Edit className={cn("size-4", className)} />;
-
     default:
-      return null;
+      return <></>;
   }
 };
