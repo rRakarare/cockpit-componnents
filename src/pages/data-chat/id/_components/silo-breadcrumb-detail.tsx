@@ -2,7 +2,7 @@ import CustomBreadcrumb from "@/components-v2/custom/unsorted/breadcrumb";
 import { hrefMap } from "@/config-v2/links";
 
 interface Props {
-  name: string | null;
+  name: string | null | undefined;
 }
 
 function SiloBreadcrumbDetail({ name }: Props) {

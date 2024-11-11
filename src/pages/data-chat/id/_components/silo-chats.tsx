@@ -1,7 +1,7 @@
-import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types";
+import { DataSiloDetailType } from "@/types/db/dataSilo";
 import { MessageCircle } from "lucide-react";
 
-function SiloChats({ chats }: Pick<DataSiloType, "chats">) {
+function SiloChats({ chats }: Pick<DataSiloDetailType, "chats">) {
   if (chats.length === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center min-h-72 border rounded-xl p-4">
@@ -20,7 +20,7 @@ function SiloChats({ chats }: Pick<DataSiloType, "chats">) {
     <div className="flex flex-col space-y-2">
       {chats.map((chat) => (
         <div
-          key={chat.id}
+          key={chat.chat_uuid}
           className="w-full flex space-x-3 py-2  border px-4 rounded-xl items-center hover:bg-accent cursor-pointer"
         >
           <div className="p-1 border rounded-lg">

@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import { Button } from "@/components-v2/ui/button";
 import React, { useState, useEffect } from "react";
 

@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useStream } from "@/lib-v2/hooks/chat/useStream";
 import { useAppDispatch } from "@/redux-rtk-v2/app/store";
 import { useGetChatByIdQuery } from "@/redux-rtk-v2/features/combinedChats/combinedChatApi";

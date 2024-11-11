@@ -1,17 +1,19 @@
+
 import { Button } from "@/components-v2/ui/button";
-import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types";
 import { getIcon } from "@/config-v2/icons/icon-map";
 import { getLastMessage } from "@/lib-v2/formatters";
+import { DataSiloSimpleType } from "@/types/db/dataSilo";
 import { Trash } from "lucide-react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-function SiloItem({id, icon, display_name, updated_at, chats, color}: Pick<DataSiloType, 'id' | 'color' | 'icon'| 'updated_at' | 'display_name' | 'chats'>) {
+
+function SiloItem({data_silo_uuid, icon, display_name, updated_at, chatCount, color}: DataSiloSimpleType) {
 
     const delta = getLastMessage(updated_at);
 
   return (
     <Link
-    to={`/data-chat/${id}`}
+    to={`/data-chat/${data_silo_uuid}`}
     className="chat-history-item group"
   >
     <div className="flex items-center space-x-3">
@@ -20,7 +22,7 @@ function SiloItem({id, icon, display_name, updated_at, chats, color}: Pick<DataS
       </div>
       <div>
         <p className="font-semibold mb-1">{display_name}</p>
-        <p className="text-sm text-muted-foreground">{chats.length} Chats</p>
+        <p className="text-sm text-muted-foreground">{chatCount} Chats</p>
         <p className="text-sm text-muted-foreground">
           Letzte Nachricht {delta}
         </p>

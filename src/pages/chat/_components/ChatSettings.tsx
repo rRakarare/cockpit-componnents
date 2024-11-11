@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import ChatInput from "@/components-v2/custom/chat/chat-input";
 import { RootState, useAppDispatch } from "@/redux-rtk-v2/app/store";
 import { setSendData } from "@/redux-rtk-v2/features/combinedChats/normalChatSlice";

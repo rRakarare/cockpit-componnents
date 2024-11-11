@@ -1,9 +1,9 @@
 import { Button } from "@/components-v2/ui/button"
-import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types"
+import { DataSiloDetailType } from "@/types/db/dataSilo"
 import { Ellipsis, Users } from "lucide-react"
 
 function SiloGroups
-({ groups }: Pick<DataSiloType, "groups">) {
+({ groups }: Pick<DataSiloDetailType, "groups">) {
   return (
     <div className="border rounded-xl overflow-hidden">
     <div className="py-2 px-4 flex items-center justify-between space-x-3 border-b">
@@ -17,7 +17,7 @@ function SiloGroups
     </div>
     {groups.map((group) => (
           <div
-          key={group.id}
+          key={group.group_uuid}
           className="w-full flex items-center space-x-3 py-4 px-4 border-b last:border-none"
         >
           <div className="p-1 border rounded-lg">

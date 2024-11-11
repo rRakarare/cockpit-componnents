@@ -20,6 +20,8 @@ export const DataSiloSchema = z.object({
   system_message: z.string().nullable(),
   access_type: z.enum(['shared', 'company', 'private']).default('private'),
   company_id: z.bigint().nullable(),
+  created_at: z.date(),
+  updated_at: z.date(),
 });
 
 export type DataSiloType = z.infer<typeof DataSiloSchema>;
@@ -33,13 +35,14 @@ export const DataSiloSimpleSchema = DataSiloSchema.pick({
   description: true,
   cluster_url: true,
   display_name: true,
+  updated_at: true,
   icon: true,
   color: true,
 }).extend({
   chatCount: z.number().int(),
 });
 
-export type DataSiloDetailSchema = z.infer<typeof DataSiloSimpleSchema>;
+export type DataSiloSimpleType = z.infer<typeof DataSiloSimpleSchema>;
 
 // To query a single item in Detail view
 

@@ -27,9 +27,7 @@ function Page() {
         color={data?.color}
       />
       {isLoading || !data ? (
-
-          <LoadingDataIcon className="mx-auto size-8" />
-
+        <LoadingDataIcon className="mx-auto size-8" />
       ) : (
         <PromptDetails
           chats={data?.chats}

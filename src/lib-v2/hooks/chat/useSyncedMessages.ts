@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import { MessageType } from "@/redux-rtk-v2/types/chats/message";
 import { useEffect, useState } from "react";
 

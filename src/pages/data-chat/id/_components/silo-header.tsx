@@ -1,16 +1,28 @@
-import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types";
+import { Skeleton } from "@/components-v2/ui/skeleton";
 import { getIcon } from "@/config-v2/icons/icon-map";
+import { DataSiloDetailType } from "@/types/db/dataSilo";
 
 function SiloHeader({
   display_name,
   description,
   icon,
-  color
-}: Pick<DataSiloType, "display_name" | "icon" | "color" | "description">) {
+  color,
+  isLoading
+}: Partial<Pick<DataSiloDetailType, "display_name" | "icon" | "color" | "description">> & { isLoading: boolean }) {
+
+  if (isLoading) return (
+    <div className="flex px-6 items-center space-x-3 h-24 border-b mb-8 py-4">
+      <Skeleton className="rounded-lg size-10" />
+      <div className="">
+        <Skeleton className="w-44 h-6 mb-2" />
+        <Skeleton className="w-72 h-4" />
+      </div>
+    </div>
+  )
 
   return (
-    <div className="flex px-6 items-center space-x-3 border-b mb-8 py-4">
-      <div className="p-3 rounded-lg" style={{background:color}}>{getIcon({iconName:icon})}</div>
+    <div className="flex px-6 items-center space-x-3 h-24 border-b mb-8 py-4">
+      <div className="p-3 rounded-lg size-10" style={{background:color}}>{getIcon({iconName:icon})}</div>
       <div>
         <p className="font-semibold mb-1 text-2xl">{display_name}</p>
         <p className="text-muted-foreground text-md">{description}</p>
