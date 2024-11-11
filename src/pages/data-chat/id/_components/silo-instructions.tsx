@@ -1,8 +1,8 @@
 import { Button } from "@/components-v2/ui/button";
 import { Textarea } from "@/components-v2/ui/textarea";
-import { DataSiloType } from "@/config-v2/datasilo/types/datasilo-types";
+import { DataSiloDetailType } from "@/types/db/dataSilo";
 
-function SiloInstructions({ system_message }: Pick<DataSiloType, "system_message">) {
+function SiloInstructions({ system_message }: Pick<DataSiloDetailType, "system_message">) {
   return (
     <div className="border rounded-xl overflow-hidden">
       <div className="py-2 px-4">
